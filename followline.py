@@ -43,7 +43,6 @@ class LineFollower:
         target_value = cs.value()
         print(target_value)
         print(self.btn.down)
-
         # Start the main loop
         while not self.shut_down:
             print(self.btn.down)
