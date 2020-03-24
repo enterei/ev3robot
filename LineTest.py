@@ -11,7 +11,7 @@ class LineTest:
         us = ev3.UltrasonicSensor();
         assert us.connected  # measures distance
 
-        cs.mode = 'COL-REFLECT'  # measure light intensity
+        cs.mode = 'RGB-RAW'  # measure light intensity
 
         us.mode = 'US-DIST-CM'  # measure distance in cm
         target_value = cs.value()
@@ -19,5 +19,7 @@ class LineTest:
 
         target_value_name=cs.value()
         print(target_value)
-        r,b,y = cs.raw()
-        print(r)
+	print(cs.mode)
+	print(cs.value(0))
+	print(cs.value(1))
+	print(cs.value(2))      
