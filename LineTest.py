@@ -19,4 +19,5 @@ class LineTest:
 
         target_value_name=cs.value()
         print(target_value)
-        print(cs.raw())
+        r,b,y = cs.raw()
+        print(r)
