@@ -19,7 +19,7 @@ class LineTest:
 
         target_value_name=cs.value()
         print(target_value)
-	print(cs.mode)
-	print(cs.value(0))
-	print(cs.value(1))
-	print(cs.value(2))      
+	    print(cs.mode)
+	    print(cs.value(0))
+	    print(cs.value(1))
+	    print(cs.value(2))
