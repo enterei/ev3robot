@@ -14,12 +14,6 @@ class LineTest:
         cs.mode = 'RGB-RAW'  # measure light intensity
 
         us.mode = 'US-DIST-CM'  # measure distance in cm
-        target_value = cs.value()
+        print(cs.mode)
+        print(cs.green)
 
-
-        target_value_name=cs.value()
-        print(target_value)
-	    print(cs.mode)
-	    print(cs.value(0))
-	    print(cs.value(1))
-	    print(cs.value(2))
