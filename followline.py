@@ -42,10 +42,11 @@ class LineFollower:
         # initial measurment
         target_value = cs.value()
         print(target_value)
-
+        print(self.btn.down)
 
         # Start the main loop
         while not self.shut_down:
+            print(self.btn.down)
 
             # deal with obstacles
             distance = us.value() // 10  # convert mm to cm
@@ -84,9 +85,8 @@ class LineFollower:
                 sleep(dt / 1000)
 
             previous_error = error
-            print(self.btn.down)
             # Check if buttons pressed (for pause or stop)
-            if  self.btn.down:  # Stop
+            if  not self.btn.down:  # Stop
                 print("Exit program... da")
                 self.shut_down = True
             elif not self.btn.left:  # Pause
