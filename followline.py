@@ -41,6 +41,8 @@ class LineFollower:
 
         # initial measurment
         target_value = cs.value()
+        print(target_value)
+
 
         # Start the main loop
         while not self.shut_down:
@@ -71,6 +73,7 @@ class LineFollower:
                     u = speed - 1000
 
             # run motors
+            print("u ist:", u)
             if u >= 0:
                 lm.run_timed(time_sp=dt, speed_sp=speed + u, stop_action=stop_action)
                 rm.run_timed(time_sp=dt, speed_sp=speed - u, stop_action=stop_action)
