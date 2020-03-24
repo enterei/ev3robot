@@ -16,4 +16,7 @@ class LineTest:
         us.mode = 'US-DIST-CM'  # measure distance in cm
         print(cs.mode)
         print(cs.green)
+        print(cs.blue)
+        print(cs.red)
+        print(cs.raw)
 
