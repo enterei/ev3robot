@@ -1,4 +1,4 @@
 from followline import LineFollower
 
-robot = LineFollower
+robot = LineTest()
 robot.run()
