@@ -108,6 +108,6 @@ class LineFollower:
 
 
 # Main function
-if __name__ == "__main__":
-    robot = LineFollower()
-    robot.run()
+#if __name__ == "__main__":
+ #   robot = LineFollower()
+  #  robot.run()
