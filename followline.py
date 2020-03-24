@@ -86,7 +86,7 @@ class LineFollower:
             previous_error = error
             print(self.btn.down)
             # Check if buttons pressed (for pause or stop)
-            if not self.btn.down:  # Stop
+            if  self.btn.down:  # Stop
                 print("Exit program... da")
                 self.shut_down = True
             elif not self.btn.left:  # Pause
