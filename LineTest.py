@@ -15,6 +15,12 @@ class LineTest:
 
         us.mode = 'US-DIST-CM'  # measure distance in cm
         print(cs.mode)
+
+        print(cs.green)
+        print(cs.blue)
+        print(cs.red)
+        print(cs.raw)
+        cs.mode = 'COL-REFLECT'  # measure light intensity
         print(cs.green)
         print(cs.blue)
         print(cs.red)
