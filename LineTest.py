@@ -1,3 +1,4 @@
+import ev3dev.ev3 as ev3
 class LineTest:
     def __init__(self):
         self.btn = ev3.Button()
