@@ -20,7 +20,7 @@ class LineTest:
         print(cs.blue)
         print(cs.red)
         print(cs.raw)
-        cs.mode = 'COL-REFLECT'  # measure light intensity
+        cs.mode = 'COL-AMBIENT'  # measure light intensity
         print(cs.green)
         print(cs.blue)
         print(cs.red)
