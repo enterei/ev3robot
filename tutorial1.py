@@ -8,11 +8,12 @@ PORT = 65432        # The port used by the server
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     s.sendall(b'Hello, world')
-    data = s.recv(1024)
+    data=[]
+    data.append(s.recv(1024))
     gems= [3,5,7,8]
     gems_bytes= bytes(gems)
     s.sendall(gems_bytes)
-
+    data.append(s.recv(1024))
 
 
 print('Received', repr(data))
