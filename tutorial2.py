@@ -51,9 +51,10 @@ def service_connection(key, mask):
 
 if len(sys.argv) != 4:
     print("usage:", sys.argv[0], "<host> <port> <num_connections>")
-    sys.exit(1)
-
-host, port, num_conns = sys.argv[1:4]
+    host  ='192.168.0.94'
+    port = '6664'
+    num_conns=1
+#host, port, num_conns = sys.argv[1:4]
 start_connections(host, int(port), int(num_conns))
 
 try:
