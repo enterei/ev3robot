@@ -10,6 +10,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.sendall(b'Hello, world')
     data = s.recv(1024)
     gems= [3,5,7,8]
+    gems= gems.encode()
     s.sendall(gems)
 
 
