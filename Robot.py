@@ -2,6 +2,8 @@ from MySocket import MySocket
 from ColorSensor import ColorSensor
 import ev3dev.ev3 as ev3
 
+from helper.targetValue import targetvalue
+
 stop_action= "coast"
 power = 200
 dt = 500
@@ -31,12 +33,14 @@ class Robot:
         for i in range (time):
             #self.lm.run_timed(time_sp=dt, speed_sp=speed , stop_action=stop_action)
             #self.rm.run_timed(time_sp=dt, speed_sp=speed , stop_action=stop_action)
-            target_value = self.cs.value()
+            target_val = self.cs.value()
             print()
-            print("target v:" +str(target_value))
+            print("target v:" +str(targetvalue(target_val)))
+
+            print("red: " + str(self.cs.red))
             print("green: "+str(self.cs.green))
             print("blue:" +str(self.cs.blue))
-            print("red: "+str(self.cs.red))
+
             print("raw: "+ str(self.cs.raw))
 
 
