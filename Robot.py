@@ -15,7 +15,7 @@ class Robot:
 
 
     def run(self):
-        self.lm.run_timed(speed_sp = 100,time_sp=self.d,stop_action=stop_action)
+        self.lm.run_timed(speed_sp = 100,time_sp=self.dt,stop_action=stop_action)
         self.rm.run_timed(speed_sp = 100,time_sp=self.dt,stop_action=stop_action)
 
         print("run")
