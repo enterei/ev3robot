@@ -11,7 +11,7 @@ class Robot:
     assert lm.connected  # left motor
     rm = ev3.LargeMotor('outC');
     assert rm.connected  # right motor
-    dt = 500
+    dt = 5500
 
 
     def run(self):
