@@ -12,7 +12,7 @@ class Robot:
     colorS = ColorSensor()
     cs = ev3.ColorSensor();
     assert cs.connected  # measures light intensity
-    cs.mode = 'COL-REFLECT'  # measure light intensity
+    #cs.mode = 'COL-REFLECT'  # measure light intensity
     cs.mode = 'RGB-RAW'  # measure light intensity
 
     lm = ev3.LargeMotor('outB');
@@ -33,11 +33,11 @@ class Robot:
             #self.rm.run_timed(time_sp=dt, speed_sp=speed , stop_action=stop_action)
             target_value = self.cs.value()
             print()
-            print(target_value)
-            print(self.cs.green)
-            print(self.cs.blue)
-            print(self.cs.red)
-            print(self.cs.raw)
+            print("target v:" +target_value)
+            print("green: "+self.cs.green)
+            print("blue:" +self.cs.blue)
+            print("red: "+self.cs.red)
+            print("raw: "+ self.cs.raw)
 
 
 
