@@ -33,11 +33,11 @@ class Robot:
             #self.rm.run_timed(time_sp=dt, speed_sp=speed , stop_action=stop_action)
             target_value = self.cs.value()
             print()
-            print("target v:" +target_value)
-            print("green: "+self.cs.green)
-            print("blue:" +self.cs.blue)
-            print("red: "+self.cs.red)
-            print("raw: "+ self.cs.raw)
+            print("target v:" +str(target_value))
+            print("green: "+str(self.cs.green))
+            print("blue:" +str(self.cs.blue))
+            print("red: "+str(self.cs.red))
+            print("raw: "+ str(self.cs.raw))
 
 
 
