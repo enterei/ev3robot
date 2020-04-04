@@ -5,7 +5,8 @@ from MySocket import MySocket
 
 #robot = LineTest()
 robot = Robot()
-robot.run()
+robot.run_measure(10)
+
 #mysocket = MySocket
 #mysocket.conn(mysocket)
 #mysocket.send(mysocket,[2,3,4,5])
