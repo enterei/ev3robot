@@ -9,4 +9,4 @@ def targetvalue(i):
         6: 'White',
         7: 'Brown'
     }
-    return switch.get(i, "Invalid day of week")
+    return switch.get(i, i)
