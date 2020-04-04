@@ -1,7 +1,8 @@
 import ev3dev.ev3 as ev3
 from time import sleep
 
-class LineTest:
+class ColorSensor:
+
     def __init__(self):
         self.btn = ev3.Button()
         self.shut_down = False
