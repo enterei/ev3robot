@@ -29,8 +29,8 @@ class Robot:
         print("run")
     def run_measure(self,time):
         for i in range (time):
-            self.lm.run_timed(time_sp=dt, speed_sp=speed , stop_action=stop_action)
-            self.rm.run_timed(time_sp=dt, speed_sp=speed , stop_action=stop_action)
+            #self.lm.run_timed(time_sp=dt, speed_sp=speed , stop_action=stop_action)
+            #self.rm.run_timed(time_sp=dt, speed_sp=speed , stop_action=stop_action)
             target_value = self.cs.value()
             print()
             print(target_value)
