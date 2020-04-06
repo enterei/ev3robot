@@ -34,7 +34,7 @@ class Robot:
 
     def run_modes(self, ar, *args):
         switcher = {
-            'run': self.run(self, args),
+            'run': self.run(args),
             'mea': self.measure(),
             'runmea': self.run_measure()
         }
@@ -44,8 +44,8 @@ class Robot:
         return 0
     def run_measure(self):
         for i in range(time):
-            self.run(self)
-            self.measure(self)
+            self.run()
+            self.measure()
 
     def measure(self):
         target_val = self.cs.value()
