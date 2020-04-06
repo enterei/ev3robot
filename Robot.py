@@ -46,7 +46,7 @@ class Robot:
         if(ar is'run'):
             print("run in if ")
             self.run(kwargs)
-        if(ar is not 'run'):
+        if(ar.rmode is not 'run'):
             print('a: '+ ar)
             print('b: '+ 'run')
         elif(ar is "mea"):
