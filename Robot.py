@@ -35,8 +35,8 @@ class Robot:
     def run_modes(self, ar, *args):
         switcher = {
             'run': self.run(self, args),
-            'mea': self.measure(self),
-            'runmea': self.run_measure(self)
+            'mea': self.measure(),
+            'runmea': self.run_measure()
         }
         func = switcher.get(ar, "nothing")
 
@@ -63,7 +63,6 @@ class Robot:
         self.lm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
         self.rm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
 
-        print("run")
 
     def run_measuretry(self): ##tryout methode
         self.lm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
