@@ -58,7 +58,7 @@ class Robot:
 
         print("raw: " + str(self.cs.raw))
 
-    def run(self):
+    def run(self,*args):
         self.lm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
         self.rm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
 
