@@ -45,12 +45,12 @@ class Robot:
      #   print(args.__len__())
         if(ar =="run"):
             print("run in if ")
-            self.run(kwargs)
+            self.run(**kwargs)
 
         elif(ar == "mea"):
-            self.measure(kwargs)
+            self.measure(**kwargs)
         elif(ar == "runmea"):
-            self.run_measure(kwargs)
+            self.run_measure(**kwargs)
 
         elif (str(ar) != str("run")):
             print('a: ' + ar)
