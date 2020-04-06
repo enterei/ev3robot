@@ -17,7 +17,7 @@ def main():
     pargs= parser.parse_args()
 
     print('pargs: ')
-    print(pargs)
+    print(pargs.items().rmode)
 
     robot = Robot(cmode=pargs.cmode)
     ar=pargs.rmode
