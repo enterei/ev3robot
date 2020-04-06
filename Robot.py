@@ -43,7 +43,7 @@ class Robot:
     def run_mode(self, *args):
         return 0
     def run_measure(self):
-        for i in range(self.time):
+        for i in range(time):
             self.run(self)
             self.measure(self)
 
