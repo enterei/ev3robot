@@ -15,11 +15,11 @@ parser.add_argument('--time',type=int,default=10,help='time!',required=False)
 parser.add_argument('rmode',type=str,help='rmode!')
 def main():
     pargs= parser.parse_args()
-    args=[]
+
     print(pargs)
     robot = Robot(cmode=pargs.cmode)
 
-    robot.run_modes(pargs.rmode,*pargs)
+    robot.run_modes(pargs.rmode,{'speed':pargs.speed,'time':pargs.time})
 
     #robot.run_measure(10)
 
