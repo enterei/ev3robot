@@ -19,7 +19,7 @@ def main():
     print(pargs)
     robot = Robot(cmode=pargs.cmode)
 
-    robot.run_modes(pargs.rmode,{'speed':pargs.speed,'time':pargs.time})
+    robot.run_modes(pargs.rmode,**{'speed':pargs.speed,'time':pargs.time})
 
     #robot.run_measure(10)
 
