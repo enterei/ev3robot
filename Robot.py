@@ -46,20 +46,20 @@ class Robot:
         if(ar =="run"):
             print("run in if ")
             self.run(kwargs)
-        if(str(ar) != str("run")):
-            print('a: '+ ar)
-            print('a len: '+str(len(ar)))
+
+        elif(ar == "mea"):
+            self.measure(kwargs)
+        elif(ar == "runmea"):
+            self.run_measure(kwargs)
+
+        elif (str(ar) != str("run")):
+            print('a: ' + ar)
+            print('a len: ' + str(len(ar)))
             print('a rep: ' + repr(ar))
-            print('b: '+ "run")
+            print('b: ' + "run")
 
             print('b len: ' + str(len("run")))
             print('b rep: ' + repr("run"))
-        elif(ar is "mea"):
-            self.measure(kwargs)
-        elif(ar is "runmea"):
-            self.run_measure(kwargs)
-
-
       #  return switcher.get(ar, lambda *_: "ERROR: Tank type not valid")(*args)
 
 
