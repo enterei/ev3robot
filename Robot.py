@@ -33,12 +33,14 @@ class Robot:
         print("robo cmode: " + str(self.cs.mode))
 
     def run_modes(self, ar, *args):
+        print("rmode: " + str(ar))
+        print(args.__len__())
         switcher = {
-            'run': self.run(args),
-            'mea': self.measure(),
-            'runmea': self.run_measure()
+            'run':lambda :self.run(args) ,
+            'mea': lambda:self.measure(),
+            'runmea': lambda :self.run_measure()
         }
-        print("rmode: "+str(ar))
+
         switcher.get(ar, "nothing")
 
 
