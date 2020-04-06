@@ -28,4 +28,4 @@ def main():
 #mysocket.send(mysocket,[3,24,34,53])
 if __name__ == '__main__':
     #server()
-    main(sys.argv)
+    main()
