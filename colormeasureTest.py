@@ -18,6 +18,7 @@ def main():
 
     print('pargs: ')
     print(pargs.items().rmode)
+    print(pargs.cmodeK)
 
     robot = Robot(cmode=pargs.cmode)
     ar=pargs.rmode
