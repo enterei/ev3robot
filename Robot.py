@@ -46,9 +46,11 @@ class Robot:
         if(ar is"run"):
             print("run in if ")
             self.run(kwargs)
-        if(ar is not "run"):
+        if(str(ar) is not str("run")):
             print('a: '+ ar)
-            print('b: '+ 'run')
+            print('a len: '+len(ar))
+            print('b: '+ "run")
+            print('a len: ' + len("run"))
         elif(ar is "mea"):
             self.measure(kwargs)
         elif(ar is "runmea"):
