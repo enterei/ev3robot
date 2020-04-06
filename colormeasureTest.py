@@ -14,9 +14,8 @@ parser.add_argument('rmode',type=str,help='rmode!')
 def main():
     pargs= parser.parse_args()
     args=[]
-    robot = Robot()
-    if pargs.cmode:
-        args.append(pargs.cmode)
+    robot = Robot(cmode=pargs.cmode)
+
     robot.run_modes(pargs.rmode,args)
 
     #robot.run_measure(10)

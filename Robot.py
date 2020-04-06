@@ -2,12 +2,13 @@ from MySocket import MySocket
 from ColorSensor import ColorSensor
 import ev3dev.ev3 as ev3
 
-from helper.targetValue import targetvalue
+from helper.targetValue import targetvalue, targetMode
 
 stop_action = "coast"
 power = 200
 dt = 500
 speed = 200
+time = 10
 
 
 class Robot:
@@ -27,26 +28,26 @@ class Robot:
 
     def __init__(self, **kwargs):
         for keys, value in kwargs.items():
-            if (keys == "mode"):
-                self.cs.mode = value
-        print("robo mode: " + str(self.cs.mode))
+            if (keys == "cmode"):
+                self.cs.mode = targetMode(value)
+        print("robo cmode: " + str(self.cs.mode))
 
     def run_modes(self, ar, *args):
         switcher = {
-            'go': self.run(self, args),
-            'measure': self.run_measure(self, args[0])
+            'run': self.run(self, args),
+            'mea': self.measure(self),
+            'runmea': self.run_measure(self)
         }
         func = switcher.get(ar, "nothing")
 
     def run_mode(self, *args):
         return 0
-    def run_measure(self, time):
-        for i in range(time):
+    def run_measure(self):
+        for i in range(self.time):
             self.run(self)
             self.measure(self)
 
     def measure(self):
-        self.cs.mode = 'COL-REFLECT'
         target_val = self.cs.value()
 
         print()
@@ -64,10 +65,10 @@ class Robot:
 
         print("run")
 
-    def run_measuretry(self, modus):
+    def run_measuretry(self): ##tryout methode
         self.lm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
         self.rm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
-        self.measure(self, modus)
+        self.measure(self)
         return 0
 
     def change_C_Mode(self,mode):
