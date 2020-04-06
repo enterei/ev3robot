@@ -12,6 +12,10 @@ time = 10
 
 
 class Robot:
+    power = 200
+    dt = 500
+    speed = 200
+    time = 10
     socket = MySocket()
     colorS = ColorSensor()
     cs = ev3.ColorSensor();
@@ -30,27 +34,35 @@ class Robot:
         for keys, value in kwargs.items():
             if (keys == "cmode"):
                 self.cs.mode = targetMode(value)
+           # if(keys == 'speed'):
+            #    self.speed=value
+            #if(keys=='time'):
+            #    self.time=value
         print("robo cmode: " + str(self.cs.mode))
 
-    def run_modes(self, ar, *args):
+    def run_modes(self, ar, **kwargs):
         print("rmode: " + str(ar))
-        print(args.__len__())
-        switcher = {
-            'run':lambda :self.run(args) ,
-            'mea': lambda:self.measure(),
-            'runmea': lambda:self.run_measure()
-        }
+     #   print(args.__len__())
+        if(ar=="run"):
+            self.run(kwargs)
+        elif(ar=="mea"):
+            self.measure(kwargs)
+        elif(ar=="runmea"):
+            self.run_measure(kwargs)
 
-        return switcher.get(ar, lambda *_: "ERROR: Tank type not valid")(*args)
+
+      #  return switcher.get(ar, lambda *_: "ERROR: Tank type not valid")(*args)
 
 
-    def run_measure(self):
+    def run_measure(self,**kwarg):
+
+
         print("in run_measure")
-        for i in range(time):
-            self.run()
-            self.measure()
+        for i in range(kwarg.time):
+            self.run(kwarg)
+            self.measure(kwarg)
 
-    def measure(self):
+    def measure(self,**kwarg):
         print("in measure")
         target_val = self.cs.value()
 
@@ -63,10 +75,11 @@ class Robot:
 
         print("raw: " + str(self.cs.raw))
 
-    def run(self,*args):
+    def run(self,**kwarg):
         print("in run")
-        self.lm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
-        self.rm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
+        print('kwarg: power '+str(kwarg.power))
+        self.lm.run_timed(speed_sp=kwarg.power, time_sp=dt, stop_action=stop_action)
+        self.rm.run_timed(speed_sp=kwarg.power, time_sp=dt, stop_action=stop_action)
 
 
     def run_measuretry(self): ##tryout methode
