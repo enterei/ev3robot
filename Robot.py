@@ -41,14 +41,15 @@ class Robot:
         print("rmode: "+str(ar))
         switcher.get(ar, "nothing")
 
-    def run_mode(self, *args):
-        return 0
+
     def run_measure(self):
+        print("in run_measure")
         for i in range(time):
             self.run()
             self.measure()
 
     def measure(self):
+        print("in measure")
         target_val = self.cs.value()
 
         print()
@@ -61,11 +62,13 @@ class Robot:
         print("raw: " + str(self.cs.raw))
 
     def run(self,*args):
+        print("in run")
         self.lm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
         self.rm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
 
 
     def run_measuretry(self): ##tryout methode
+        print("in run_measureTRY")
         self.lm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
         self.rm.run_timed(speed_sp=power, time_sp=dt, stop_action=stop_action)
         self.measure(self)
