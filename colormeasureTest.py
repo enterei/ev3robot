@@ -16,7 +16,8 @@ parser.add_argument('rmode',type=str,help='rmode!')
 def main():
     pargs= parser.parse_args()
 
-    print('pargs: '+pargs)
+    print('pargs: ')
+    print(pargs)
 
     robot = Robot(cmode=pargs.cmode)
     ar=pargs.rmode
