@@ -4,20 +4,26 @@ from time import sleep
 class ColorSensor:
 
     def __init__(self):
-        self.btn = ev3.Button()
-        self.shut_down = False
+        try :
+            self.btn = ev3.Button()
+            self.shut_down = False
+        except:
+            print('on computer')
 
     def meassure(self):
-        cs = ev3.ColorSensor();
-        assert cs.connected  # measures light intensity
+        try:
+            cs = ev3.ColorSensor();
+            assert cs.connected  # measures light intensity
 
-        us = ev3.UltrasonicSensor();
-        assert us.connected  # measures distance
+            us = ev3.UltrasonicSensor();
+            assert us.connected  # measures distance
 
-        cs.mode = 'RGB-RAW'  # measure light intensity
+            cs.mode = 'RGB-RAW'  # measure light intensity
 
-        us.mode = 'US-DIST-CM'  # measure distance in cm
-        print(cs.mode)
+            us.mode = 'US-DIST-CM'  # measure distance in cm
+            print(cs.mode)
+        except:
+            print('on computer')
 
         print(cs.green)
         print(cs.blue)
