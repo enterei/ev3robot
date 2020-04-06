@@ -17,7 +17,7 @@ def main():
     robot = Robot()
     if pargs.cmode:
         args.append(pargs.cmode)
-    robot.run_modes(pargs().rmode,args)
+    robot.run_modes(pargs.rmode,args)
 
     #robot.run_measure(10)
 
