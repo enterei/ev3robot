@@ -44,6 +44,7 @@ class Robot:
         print("rmode: " + str(ar))
      #   print(args.__len__())
         if(ar=="run"):
+            print("run in if ")
             self.run(kwargs)
         elif(ar=="mea"):
             self.measure(kwargs)
