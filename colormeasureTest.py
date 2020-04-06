@@ -18,8 +18,9 @@ def main():
 
     print(pargs)
     robot = Robot(cmode=pargs.cmode)
-
-    robot.run_modes(pargs.__getattr__('rmote'),**{'speed':pargs.speed,'time':pargs.time})
+    ar=pargs.rmode
+    print(ar)
+    robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time})
 
     #robot.run_measure(10)
 
