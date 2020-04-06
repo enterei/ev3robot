@@ -43,14 +43,17 @@ class Robot:
     def run_modes(self, ar, **kwargs):
         print("rmode: " + str(ar))
      #   print(args.__len__())
-        if(ar is"run"):
+        if(ar =="run"):
             print("run in if ")
             self.run(kwargs)
-        if(str(ar) is not str("run")):
+        if(str(ar) != str("run")):
             print('a: '+ ar)
             print('a len: '+str(len(ar)))
+            print('a rep: ' + repr(ar))
             print('b: '+ "run")
-            print('a len: ' + str(len("run")))
+
+            print('b len: ' + str(len("run")))
+            print('b rep: ' + repr("run"))
         elif(ar is "mea"):
             self.measure(kwargs)
         elif(ar is "runmea"):
