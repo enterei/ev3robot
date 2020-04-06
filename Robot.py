@@ -38,7 +38,8 @@ class Robot:
             'mea': self.measure(),
             'runmea': self.run_measure()
         }
-        func = switcher.get(ar, "nothing")
+        print("rmode: "+str(ar))
+        switcher.get(ar, "nothing")
 
     def run_mode(self, *args):
         return 0
