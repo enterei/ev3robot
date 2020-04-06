@@ -38,10 +38,10 @@ class Robot:
         switcher = {
             'run':lambda :self.run(args) ,
             'mea': lambda:self.measure(),
-            'runmea': lambda :self.run_measure()
+            'runmea': lambda:self.run_measure()
         }
 
-        switcher.get(ar, "nothing")
+        return switcher.get(ar, lambda *_: "ERROR: Tank type not valid")(*args)
 
 
     def run_measure(self):
