@@ -36,7 +36,7 @@ except ImportError:
 from logging import getLogger
 from os.path import abspath
 from ev3dev2 import get_current_platform, Device, list_device_names
-#from ev3dev2 import DeviceNotDefined, ThreadNotRunning
+# from ev3dev2 import DeviceNotDefined, ThreadNotRunning
 from ev3dev2.stopwatch import StopWatch
 
 # OUTPUT ports have platform specific values that we must import
@@ -85,6 +85,7 @@ class SpeedValue(object):
     :class:`SpeedPercent`, :class:`SpeedRPS`, :class:`SpeedRPM`,
     :class:`SpeedDPS`, and :class:`SpeedDPM`.
     """
+
     def __eq__(self, other):
         return self.to_native_units() == other.to_native_units()
 
@@ -113,6 +114,7 @@ class SpeedPercent(SpeedValue):
     """
     Speed as a percentage of the motor's maximum rated speed.
     """
+
     def __init__(self, percent, desc=None):
         print('komme hier her')
         print(desc)
@@ -140,6 +142,7 @@ class SpeedNativeUnits(SpeedValue):
     """
     Speed in tacho counts per second.
     """
+
     def __init__(self, native_counts, desc=None):
         self.native_counts = native_counts
         self.desc = desc
@@ -165,6 +168,7 @@ class SpeedRPS(SpeedValue):
     """
     Speed in rotations-per-second.
     """
+
     def __init__(self, rotations_per_second, desc=None):
         self.rotations_per_second = rotations_per_second
         self.desc = desc
@@ -190,6 +194,7 @@ class SpeedRPM(SpeedValue):
     """
     Speed in rotations-per-minute.
     """
+
     def __init__(self, rotations_per_minute, desc=None):
         self.rotations_per_minute = rotations_per_minute
         self.desc = desc
@@ -215,6 +220,7 @@ class SpeedDPS(SpeedValue):
     """
     Speed in degrees-per-second.
     """
+
     def __init__(self, degrees_per_second, desc=None):
         self.degrees_per_second = degrees_per_second
         self.desc = desc
@@ -240,6 +246,7 @@ class SpeedDPM(SpeedValue):
     """
     Speed in degrees-per-minute.
     """
+
     def __init__(self, degrees_per_minute, desc=None):
         self.degrees_per_minute = degrees_per_minute
         self.desc = desc
@@ -1116,7 +1123,6 @@ class LargeMotor(Motor):
     __slots__ = []
 
     def __init__(self, address=None, name_pattern=SYSTEM_DEVICE_NAME_CONVENTION, name_exact=False, **kwargs):
-
         super(LargeMotor, self).__init__(address,
                                          name_pattern,
                                          name_exact,
@@ -1136,7 +1142,6 @@ class MediumMotor(Motor):
     __slots__ = []
 
     def __init__(self, address=None, name_pattern=SYSTEM_DEVICE_NAME_CONVENTION, name_exact=False, **kwargs):
-
         super(MediumMotor, self).__init__(address, name_pattern, name_exact, driver_name=['lego-ev3-m-motor'], **kwargs)
 
 
@@ -1153,7 +1158,6 @@ class ActuonixL1250Motor(Motor):
     __slots__ = []
 
     def __init__(self, address=None, name_pattern=SYSTEM_DEVICE_NAME_CONVENTION, name_exact=False, **kwargs):
-
         super(ActuonixL1250Motor, self).__init__(address,
                                                  name_pattern,
                                                  name_exact,
@@ -1174,7 +1178,6 @@ class ActuonixL12100Motor(Motor):
     __slots__ = []
 
     def __init__(self, address=None, name_pattern=SYSTEM_DEVICE_NAME_CONVENTION, name_exact=False, **kwargs):
-
         super(ActuonixL12100Motor, self).__init__(address,
                                                   name_pattern,
                                                   name_exact,
@@ -1685,7 +1688,7 @@ class MotorSet(object):
     def set_polarity(self, polarity, motors=None):
         valid_choices = (LargeMotor.POLARITY_NORMAL, LargeMotor.POLARITY_INVERSED)
 
-        assert polarity in valid_choices,\
+        assert polarity in valid_choices, \
             "%s is an invalid polarity choice, must be %s" % (polarity, ', '.join(valid_choices))
         motors = motors if motors is not None else self.motors.values()
 
@@ -1870,6 +1873,7 @@ class MoveTank(MotorSet):
         # drive in a turn for 10 rotations of the outer motor
         tank_drive.on_for_rotations(50, 75, 10)
     """
+
     def __init__(self, left_motor_port, right_motor_port, desc=None, motor_class=LargeMotor):
         motor_specs = {
             left_motor_port: motor_class,
@@ -2085,15 +2089,15 @@ class MoveTank(MotorSet):
         last_error = 0.0
         derivative = 0.0
         off_line_count = 0
-        edgeCounter =0
-        edgev=kwargs.get('edgev')
+        edgeCounter = 0
+        edgev = kwargs.get('edgev')
         edgeCountMax = kwargs.get('edgemax')
-        if(kwargs.get('edgemax')==None): return
+        if (kwargs.get('edgemax') == None): return
         edgeCountMax = kwargs.get('edgemax')
 
-       # speed = speed_to_speedvalue(speed)
+        # speed = speed_to_speedvalue(speed)
 
-        speed=SpeedPercent(speed)
+        speed = SpeedPercent(speed)
         speed_native_units = speed.to_native_units(self.left_motor)
 
         while follow_for(self, kwargs.get('ms')):
@@ -2110,15 +2114,16 @@ class MoveTank(MotorSet):
 
             left_speed = SpeedNativeUnits(speed_native_units - turn_native_units)
             right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)
-            #hit corner?
+            # hit corner?
             if not kwargs.get('bscan'):
-             if reflected_light_intensity > edgev:
-                edgeCounter+=1
-                if edgeCounter > edgeCountMax:
+                print('in kein bscan')
+                if reflected_light_intensity > edgev:
+                    edgeCounter += 1
+                    if edgeCounter > edgeCountMax:
                         self.stop()
                         raise ("ecke")
                 else:
-                    edgeCounter =0
+                    edgeCounter = 0
 
             # Have we lost the line?
             if reflected_light_intensity >= white:
@@ -2134,8 +2139,8 @@ class MoveTank(MotorSet):
                 time.sleep(sleep_time)
 
             try:
-                #print("lefts: "+ str(left_speed))
-                #print('right:'+ str(right_speed))
+                # print("lefts: "+ str(left_speed))
+                # print('right:'+ str(right_speed))
                 self.on(left_speed, right_speed)
             except SpeedInvalid as e:
                 log.exception(e)
@@ -2345,6 +2350,7 @@ class MoveSteering(MoveTank):
         # drive in a turn for 10 rotations of the outer motor
         steering_drive.on_for_rotations(-20, SpeedPercent(75), 10)
     """
+
     def on_for_rotations(self, steering, speed, rotations, brake=True, block=True):
         """
         Rotate the motors according to the provided ``steering``.
@@ -2399,7 +2405,7 @@ class MoveSteering(MoveTank):
             automatically.
         """
 
-        assert steering >= -100 and steering <= 100,\
+        assert steering >= -100 and steering <= 100, \
             "{} is an invalid steering, must be between -100 and 100 (inclusive)".format(steering)
 
         # We don't have a good way to make this generic for the pair... so we
@@ -2492,6 +2498,7 @@ class MoveDifferential(MoveTank):
         # Disable odometry
         mdiff.odometry_stop()
     """
+
     def __init__(self,
                  left_motor_port,
                  right_motor_port,
@@ -2595,6 +2602,7 @@ class MoveDifferential(MoveTank):
         - ``use_gyro``, ``brake`` and ``block`` are all True
         - A GyroSensor has been defined via ``self.gyro = GyroSensor()``
         """
+
         def final_angle(init_angle, degrees):
             result = init_angle - degrees
 
@@ -2729,6 +2737,7 @@ class MoveDifferential(MoveTank):
         A thread is started that will run until the user calls odometry_stop()
         which will set odometry_thread_run to False
         """
+
         def _odometry_monitor():
             left_previous = 0
             right_previous = 0
@@ -2823,6 +2832,7 @@ class MoveJoystick(MoveTank):
     """
     Used to control a pair of motors via a single joystick vector.
     """
+
     def on(self, x, y, radius=100.0):
         """
         Convert ``x``,``y`` joystick coordinates to left/right motor speed percentages
