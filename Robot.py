@@ -3,7 +3,7 @@ from MySocket import MySocket
 from ColorSensor import ColorSensor
 import ev3dev.ev3 as ev3
 from ev3dev2.motor import LargeMotor, OUTPUT_A, OUTPUT_B, SpeedPercent, MoveTank, follow_for_ms, follow_for_forever, \
-   LineFollowErrorTooFast, speed_to_speedvalue, LineFollowErrorLostLine
+   LineFollowErrorTooFast,  LineFollowErrorLostLine
 from ev3dev2.sensor import INPUT_1
 from ev3dev2.sensor.lego import TouchSensor
 from ev3dev2.led import Leds
