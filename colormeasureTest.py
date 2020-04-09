@@ -24,6 +24,7 @@ def main():
     print('pargs: ')
     print(pargs.rmode)
     print(pargs.cmode)
+    print(pargs.speed)
 
     robot = Robot(cmode=pargs.cmode)
     ar=pargs.rmode
