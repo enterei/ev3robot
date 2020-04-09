@@ -119,9 +119,10 @@ class Robot:
         tank = myMotor.MoveTank(OUTPUT_A,OUTPUT_B)
         tank.cs=ev3.ColorSensor()
         print(dict(kwargs))
+
         tank.follow_line(
             kp=0.3, ki=0.05, kd=0.2,
             speed=SpeedPercent(kwargs.get('speed')),
             follow_for=follow_for_ms,
-            ms=ga
+            ms=ga,**kwargs
         )
