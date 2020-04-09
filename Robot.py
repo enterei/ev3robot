@@ -124,5 +124,5 @@ class Robot:
             kp=0.3, ki=0.05, kd=0.2,
             speed=SpeedPercent(kwargs.get('speed')),
             follow_for=follow_for_ms,
-            ms=ga,**kwargs
+            **kwargs
         )
