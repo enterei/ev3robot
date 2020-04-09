@@ -109,7 +109,6 @@ class Robot:
         self.cs.mode=mode
 
     def lineF(self,**kwargs):
-        tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
-
-
+       # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
+        tank = MoveTank(self.lm,self.rm)
         tank.follow_line(1,0,0,50)
