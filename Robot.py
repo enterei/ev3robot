@@ -51,6 +51,8 @@ class Robot:
             self.measure(**kwargs)
         elif(ar == "runmea"):
             self.run_measure(**kwargs)
+        elif(ar=="fol"):
+            self.lineF(**kwargs)
 
         elif (str(ar) != str("run")):
             print('a: ' + ar)
@@ -101,6 +103,6 @@ class Robot:
     def change_C_Mode(self,mode):
         self.cs.mode=mode
 
-    def lineF(self):
+    def lineF(self,**kwargs):
         tank = ev3.Motor.MoveTank(self.lm,self.rm)
         tank.follow_line(1,0,0,50)
