@@ -2107,13 +2107,14 @@ class MoveTank(MotorSet):
             left_speed = SpeedNativeUnits(speed_native_units - turn_native_units)
             right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)
             #hit corner?
-            if reflected_light_intensity > 70:
+            if not kwargs.get('bscan'):
+             if reflected_light_intensity > 70:
                 edgeCounter+=1
                 if edgeCounter > edgeCountMax:
-                    self.stop()
-                    raise ("ecke")
-            else:
-                edgeCounter =0
+                        self.stop()
+                        raise ("ecke")
+                else:
+                    edgeCounter =0
 
             # Have we lost the line?
             if reflected_light_intensity >= white:

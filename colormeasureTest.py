@@ -16,6 +16,7 @@ parser.add_argument('--speed',type=int,default=200,help='speed!',required=False)
 parser.add_argument('--time',type=int,default=10,help='time!',required=False)
 parser.add_argument('--ms',type=int,default=4500,help='ms!',required=False)
 parser.add_argument('--edgemax',type=int,default=4,help='edgemax!',required=False)
+parser.add_argument('--bscan',type=bool,default=False,help='bscan!',required=False)
 
 
 
@@ -34,7 +35,7 @@ def main():
     print('parks.rmode in ar :'+ar)
     print('parks.rmode  :' + pargs.rmode)
 
-    robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time,'ms':pargs.ms,'edgemax':pargs.edgemax})
+    robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time,'ms':pargs.ms,'edgemax':pargs.edgemax,'bscan':pargs.bscan})
 
     #robot.run_measure(10)
 
