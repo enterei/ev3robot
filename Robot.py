@@ -116,7 +116,7 @@ class Robot:
         print(kwargs.get('ms'))
         ga = int(kwargs.get('ms'))
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
-        tank = MoveTank(OUTPUT_A,OUTPUT_B)
+        tank = myMotor.MoveTank(OUTPUT_A,OUTPUT_B)
         tank.cs=ev3.ColorSensor()
         print(dict(kwargs))
         tank.follow_line(
