@@ -112,4 +112,4 @@ class Robot:
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
         tank = MoveTank(OUTPUT_A,OUTPUT_B)
         tank.cs=ev3.ColorSensor()
-        tank.follow_line(1,0,0,50)
+        tank.follow_line(1,0,0,SpeedPercent(50.0))
