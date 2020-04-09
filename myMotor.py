@@ -2092,6 +2092,7 @@ class MoveTank(MotorSet):
 
        # speed = speed_to_speedvalue(speed)
 
+        speed=SpeedPercent(speed)
         speed_native_units = speed.to_native_units(self.left_motor)
 
         while follow_for(self, **kwargs):
