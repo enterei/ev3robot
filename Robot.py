@@ -115,7 +115,7 @@ class Robot:
 
         tank.follow_line(
         kp=11.3, ki=0.05, kd=3.2,
-        speed=SpeedPercent(30),
+        speed=SpeedPercent(kwargs.speed),
         follow_for=follow_for_ms,
         ms=4500
     )
