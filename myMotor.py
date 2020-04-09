@@ -2086,6 +2086,7 @@ class MoveTank(MotorSet):
         derivative = 0.0
         off_line_count = 0
         edgeCounter =0
+        edgeCountMax = kwargs.get('edgemax')
         if(kwargs.get('edgemax')==None): return
         edgeCountMax = kwargs.get('edgemax')
 
