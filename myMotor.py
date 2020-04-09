@@ -2086,6 +2086,7 @@ class MoveTank(MotorSet):
         derivative = 0.0
         off_line_count = 0
        # speed = speed_to_speedvalue(speed)
+
         speed_native_units = speed.to_native_units(self.left_motor)
 
         while follow_for(self, **kwargs):
@@ -2116,6 +2117,8 @@ class MoveTank(MotorSet):
                 time.sleep(sleep_time)
 
             try:
+                print("lefts: "+ str(left_speed))
+                print('right:'+ str(right_speed))
                 self.on(left_speed, right_speed)
             except SpeedInvalid as e:
                 log.exception(e)
