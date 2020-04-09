@@ -1,4 +1,3 @@
-from ev3dev2 import DeviceNotDefined
 
 from MySocket import MySocket
 from ColorSensor import ColorSensor
