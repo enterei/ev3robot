@@ -2085,6 +2085,9 @@ class MoveTank(MotorSet):
         last_error = 0.0
         derivative = 0.0
         off_line_count = 0
+        edgeCounter =0
+        edgeCountMax = kwargs.get('edgemax')
+
        # speed = speed_to_speedvalue(speed)
 
         speed_native_units = speed.to_native_units(self.left_motor)
@@ -2103,6 +2106,14 @@ class MoveTank(MotorSet):
 
             left_speed = SpeedNativeUnits(speed_native_units - turn_native_units)
             right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)
+            #hit corner?
+            if reflected_light_intensity > 70:
+                edgeCounter+=1
+                if edgeCounter > edgeCountMax:
+                    self.stop()
+                    raise ("ecke")
+            else:
+                edgeCounter =0
 
             # Have we lost the line?
             if reflected_light_intensity >= white:
