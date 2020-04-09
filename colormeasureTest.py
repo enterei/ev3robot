@@ -34,6 +34,7 @@ def main():
     ar=pargs.rmode
     print('parks.rmode in ar :'+ar)
     print('parks.rmode  :' + pargs.rmode)
+    print(pargs.edgemax)
 
     robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time,'ms':pargs.ms,'edgemax':pargs.edgemax,'bscan':pargs.bscan})
 
