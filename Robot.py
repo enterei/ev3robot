@@ -111,5 +111,5 @@ class Robot:
     def lineF(self,**kwargs):
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
         tank = MoveTank(OUTPUT_A,OUTPUT_B)
-        tank.cs=ColorSensor()
+        tank.cs=ev3.ColorSensor()
         tank.follow_line(1,0,0,50)
