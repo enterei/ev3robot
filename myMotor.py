@@ -2091,6 +2091,7 @@ class MoveTank(MotorSet):
 
         while follow_for(self, **kwargs):
             reflected_light_intensity = self._cs.reflected_light_intensity
+            print(reflected_light_intensity)
             error = target_light_intensity - reflected_light_intensity
             integral = integral + error
             derivative = error - last_error
@@ -2117,8 +2118,8 @@ class MoveTank(MotorSet):
                 time.sleep(sleep_time)
 
             try:
-                print("lefts: "+ str(left_speed))
-                print('right:'+ str(right_speed))
+                #print("lefts: "+ str(left_speed))
+                #print('right:'+ str(right_speed))
                 self.on(left_speed, right_speed)
             except SpeedInvalid as e:
                 log.exception(e)
