@@ -86,22 +86,22 @@ class SpeedValue(object):
     :class:`SpeedDPS`, and :class:`SpeedDPM`.
     """
     def __eq__(self, other):
-        return self.to_native_units() == other.to_native_units()
+        return self.to_native_units(other) == other.to_native_units(self)
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __lt__(self, other):
-        return self.to_native_units() < other.to_native_units()
+        return self.to_native_units(other) < other.to_native_units(self)
 
     def __le__(self, other):
-        return self.to_native_units() <= other.to_native_units()
+        return self.to_native_units(other) <= other.to_native_units(self)
 
     def __gt__(self, other):
-        return self.to_native_units() > other.to_native_units()
+        return self.to_native_units(other) > other.to_native_units(self)
 
     def __ge__(self, other):
-        return self.to_native_units() >= other.to_native_units()
+        return self.to_native_units(other) >= other.to_native_units(self)
 
     def __rmul__(self, other):
         return self.__mul__(other)
