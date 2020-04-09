@@ -1,4 +1,4 @@
-
+import myMotor
 from MySocket import MySocket
 from ColorSensor import ColorSensor
 import ev3dev.ev3 as ev3
@@ -116,7 +116,7 @@ class Robot:
         print(kwargs.get('ms'))
         ga = int(kwargs.get('ms'))
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
-        tank = MoveTank(OUTPUT_A,OUTPUT_B)
+        tank = myMotor.MoveTank(OUTPUT_A,OUTPUT_B)
         tank.cs=ev3.ColorSensor()
         print(dict(kwargs))
         tank.follow_line(
@@ -241,3 +241,4 @@ class Robot:
                 raise LineFollowErrorTooFast("The robot is moving too fast to follow the line")
 
         self.stop()
+    def on(self):
