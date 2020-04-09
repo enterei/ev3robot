@@ -57,6 +57,7 @@ class Robot:
         elif(ar == "runmea"):
             self.run_measure(**kwargs)
         elif(ar=="fol"):
+
             self.lineF(**kwargs)
 
         elif (str(ar) != str("run")):
@@ -115,7 +116,7 @@ class Robot:
         print(dict(kwargs))
         tank.follow_line(
         kp=11.3, ki=0.05, kd=3.2,
-        speed=SpeedPercent(kwargs.speed),
+        speed=SpeedPercent(kwargs.get('speed')),
         follow_for=follow_for_ms,
         ms=4500
     )
