@@ -112,6 +112,8 @@ class Robot:
         self.cs.mode=mode
 
     def lineF(self,**kwargs):
+        print(type(kwargs.get('ms')))
+        print(kwargs.get('ms'))
         ga = int(kwargs.get('ms'))
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
         tank = MoveTank(OUTPUT_A,OUTPUT_B)
