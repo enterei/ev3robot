@@ -32,7 +32,8 @@ def main():
     ar=pargs.rmode
     print('parks.rmode in ar :'+ar)
     print('parks.rmode  :' + pargs.rmode)
-    robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time})
+
+    robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time,'ms':pargs.ms})
 
     #robot.run_measure(10)
 
