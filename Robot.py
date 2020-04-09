@@ -100,3 +100,7 @@ class Robot:
 
     def change_C_Mode(self,mode):
         self.cs.mode=mode
+
+    def lineF(self):
+        tank = ev3.Motor.MoveTank(self.lm,self.rm)
+        tank.follow_line(1,0,0,50)
