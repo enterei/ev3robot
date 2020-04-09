@@ -1,6 +1,10 @@
 from MySocket import MySocket
 from ColorSensor import ColorSensor
 import ev3dev.ev3 as ev3
+from ev3dev2.motor import LargeMotor, OUTPUT_A, OUTPUT_B, SpeedPercent, MoveTank
+from ev3dev2.sensor import INPUT_1
+from ev3dev2.sensor.lego import TouchSensor
+from ev3dev2.led import Leds
 
 
 from helper.targetValue import targetvalue, targetMode
@@ -106,5 +110,6 @@ class Robot:
 
     def lineF(self,**kwargs):
         tank = ev3.motor.MoveTank(self.lm,self.rm)
+
 
         tank.follow_line(1,0,0,50)
