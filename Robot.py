@@ -1,7 +1,7 @@
 from MySocket import MySocket
 from ColorSensor import ColorSensor
 import ev3dev.ev3 as ev3
-from ev3dev2.motor import LargeMotor, OUTPUT_A, OUTPUT_B, SpeedPercent, MoveTank
+from ev3dev2.motor import LargeMotor, OUTPUT_A, OUTPUT_B, SpeedPercent, MoveTank,follow_for_ms
 from ev3dev2.sensor import INPUT_1
 from ev3dev2.sensor.lego import TouchSensor
 from ev3dev2.led import Leds
@@ -112,4 +112,10 @@ class Robot:
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
         tank = MoveTank(OUTPUT_A,OUTPUT_B)
         tank.cs=ev3.ColorSensor()
-        tank.follow_line(1,0,0,SpeedPercent(50.0))
+
+        tank.follow_line(
+        kp=11.3, ki=0.05, kd=3.2,
+        speed=SpeedPercent(30),
+        follow_for=follow_for_ms,
+        ms=4500
+    )
