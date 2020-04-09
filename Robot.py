@@ -28,9 +28,9 @@ class Robot:
     cs.mode = 'COL-REFLECT'  # measure light intensity
     #   cs.mode = 'RGB-RAW'  # measure light intensity
 
-    lm = ev3.LargeMotor('outB');
+    lm = ev3.LargeMotor('outA');
     assert lm.connected  # left motor
-    rm = ev3.LargeMotor('outC');
+    rm = ev3.LargeMotor('outB');
     assert rm.connected  # right motor
 
     # dt = 5500
