@@ -112,7 +112,7 @@ class Robot:
         self.cs.mode=mode
 
     def lineF(self,**kwargs):
-        ga = 4500
+        ga = int(kwargs.get('ms'))
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
         tank = MoveTank(OUTPUT_A,OUTPUT_B)
         tank.cs=ev3.ColorSensor()
