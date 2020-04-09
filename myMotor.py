@@ -2086,6 +2086,7 @@ class MoveTank(MotorSet):
         derivative = 0.0
         off_line_count = 0
         edgeCounter =0
+        edgev=kwargs.get('edgev')
         edgeCountMax = kwargs.get('edgemax')
         if(kwargs.get('edgemax')==None): return
         edgeCountMax = kwargs.get('edgemax')
@@ -2111,7 +2112,7 @@ class MoveTank(MotorSet):
             right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)
             #hit corner?
             if not kwargs.get('bscan'):
-             if reflected_light_intensity > 70:
+             if reflected_light_intensity > edgev:
                 edgeCounter+=1
                 if edgeCounter > edgeCountMax:
                         self.stop()
