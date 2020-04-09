@@ -86,22 +86,24 @@ class SpeedValue(object):
     :class:`SpeedDPS`, and :class:`SpeedDPM`.
     """
     def __eq__(self, other):
-        return self.to_native_units(other) == other.to_native_units(self)
+        return self.to_native_units() == other.to_native_units()
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __lt__(self, other):
-        return self.to_native_units(other) < other.to_native_units(self)
+        return self.to_native_units() < other.to_native_units()
 
     def __le__(self, other):
-        return self.to_native_units(other) <= other.to_native_units(self)
+        return self.to_native_units() <= other.to_native_units()
 
     def __gt__(self, other):
-        return self.to_native_units(other) > other.to_native_units(self)
+        print('greater than')
+
+        return self.to_native_units() > other.to_native_units()
 
     def __ge__(self, other):
-        return self.to_native_units(other) >= other.to_native_units(self)
+        return self.to_native_units() >= other.to_native_units()
 
     def __rmul__(self, other):
         return self.__mul__(other)
@@ -112,6 +114,9 @@ class SpeedPercent(SpeedValue):
     Speed as a percentage of the motor's maximum rated speed.
     """
     def __init__(self, percent, desc=None):
+        print('komme hier her')
+        print(desc)
+        print(percent)
         if percent < -100 or percent > 100:
             raise SpeedInvalid("invalid percentage {}, must be between -100 and 100 (inclusive)".format(percent))
         self.percent = percent
