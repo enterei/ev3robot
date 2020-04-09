@@ -35,7 +35,7 @@ except ImportError:
 
 from logging import getLogger
 from os.path import abspath
-from ev3dev2 import get_current_platform, Device, list_device_names, DeviceNotDefined, ThreadNotRunning
+from ev3dev2 import get_current_platform, Device, list_device_names, ThreadNotRunning
 from ev3dev2.stopwatch import StopWatch
 
 # OUTPUT ports have platform specific values that we must import
