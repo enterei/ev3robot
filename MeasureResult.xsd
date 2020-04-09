@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+ <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.w3.org/2001/XMLSchema ">
+
+     <xs:element name="result">
+         <xs:complexType>
+             <xs:sequence>
+                 <xs:element name="modus" type="xs:string"/>
+                 <xs:element name="color" type="xs:string"/>
+                 <xs:element name="r" type="xs:int"/>
+                 <xs:element name="g" type="xs:int"/>
+                 <xs:element name="b" type="xs:int"/>
+                 <xs:element name="value" type="xs:int"/>
+                 <xs:element name="light" type="xs:string"/>
+                 <xs:element name="note" type="xs:string"/>
+
+
+
+             </xs:sequence>
+         </xs:complexType>
+     </xs:element>
+
+ </xs:schema>
