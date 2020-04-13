@@ -2118,7 +2118,7 @@ class MoveTank(MotorSet):
             # hit corner?
             if not kwargs.get('bscan'):
                 print('in kein bscan')
-                if reflected_light_intensity > edgev:
+                if reflected_light_intensity < edgev:
                     edgeCounter += 1
                     if edgeCounter > edgeCountMax:
                         self.stop()
