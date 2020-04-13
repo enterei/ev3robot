@@ -121,10 +121,14 @@ class Robot:
         tank.cs=ev3.ColorSensor()
         print(dict(kwargs))
 
-        if(tank.follow_line(
+        res= tank.follow_line(
          #   kp=0.3, ki=0.05, kd=0.2,
             follow_for=follow_for_ms,  #todo follow ms kwarg
             **kwargs
-        ).get('ecke')==True and kwargs.get('turn')==True):
+        )
+        if(res.get('ecke')==True and kwargs.get('turn')==True):
             print('turn')
             tank.on_for_degrees(kwargs.get('lspeed'),kwargs.get('rspeed'),kwargs.get('degrees'))
+        else:
+            print(res.get('ecke'))
+            print(kwargs.get('turn'))
