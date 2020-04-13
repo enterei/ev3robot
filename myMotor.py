@@ -2116,16 +2116,7 @@ class MoveTank(MotorSet):
             left_speed = SpeedNativeUnits(speed_native_units - turn_native_units)
             right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)
             # hit corner?
-            if not kwargs.get('bscan'):
-                print('in kein bscan')
-                if reflected_light_intensity < edgev:
-                    edgeCounter += 1
-                    if edgeCounter > edgeCountMax:
-                        self.stop()
-                        print("ecke")
-                        return {'ecke':True}
-                else:
-                    edgeCounter = 0
+
 
             # Have we lost the line?
             if reflected_light_intensity >= white:
@@ -2148,6 +2139,16 @@ class MoveTank(MotorSet):
                 log.exception(e)
                 self.stop()
                 raise LineFollowErrorTooFast("The robot is moving too fast to follow the line")
+            if not kwargs.get('bscan'):
+                print('in kein bscan')
+                if reflected_light_intensity < edgev:
+                    edgeCounter += 1
+                    if edgeCounter > edgeCountMax:
+                        self.stop()
+                        print("ecke")
+                        return {'ecke': True}
+                else:
+                    edgeCounter = 0
 
         self.stop()
 
