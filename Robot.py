@@ -136,7 +136,7 @@ class Robot:
         res= tank.follow_line(
          #   kp=0.3, ki=0.05, kd=0.2,
             #follow_for=follow_for_forever, #todo follow ms kwarg
-            folow_for=follow_for_ms,ms=kwargs.get('ms')
+            folow_for=follow_for_ms,ms=kwargs.get('ms'),
             **kwargs
         )
         if(res.get('ecke')==True and kwargs.get('turn')==True):
