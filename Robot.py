@@ -116,8 +116,9 @@ class Robot:
         tank.on_for_rotations(-1,-1,kwargs.get('rot'))
         tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
     def turn_corner(self,tank,**kwargs):
-        tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 980)
+        tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 970)
         while self.cs.reflected_light_intensity> kwargs.get('edgev'):
+            print(self.cs.reflected_light_intensity)
             tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
     def lineF(self,**kwargs):
         print(type(kwargs.get('ms')))
