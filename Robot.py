@@ -86,7 +86,7 @@ class Robot:
         target_val = self.cs.value()
         self.cs.reflected_light_intensity
         print()
-        print('refl line foll u know u shit'+str(self.cs.reflected_light_intensity))
+        print("refl line foll u know u shit: "+str(self.cs.reflected_light_intensity))
         print("target v:" + str(targetvalue(target_val)))
 
         print("red: " + str(self.cs.red))
