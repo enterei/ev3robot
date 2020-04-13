@@ -121,7 +121,8 @@ class Robot:
         print(dict(kwargs))
 
         tank.follow_line(
-            kp=0.3, ki=0.05, kd=0.2,
+            kp=kwargs.get('kp'), ki=kwargs.get('ki'), kd=kwargs.get('kd'),
             follow_for=follow_for_ms,
             **kwargs
         )
+        #tank.on_for_degrees(5,0,90)

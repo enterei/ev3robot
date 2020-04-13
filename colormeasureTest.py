@@ -18,6 +18,9 @@ parser.add_argument('--ms',type=int,default=4500,help='ms!',required=False)
 parser.add_argument('--edgemax',type=int,default=4,help='edgemax!',required=False)
 parser.add_argument('--edgev',type=int,default=74,help='edgev!',required=False)
 parser.add_argument('--bscan',type=bool,default=False,help='bscan!',required=False)
+parser.add_argument('--kp',type=float,default=0.3,help='kp!',required=False)
+parser.add_argument('--ki',type=float,default=0.05,help='ki!',required=False)
+parser.add_argument('--kd',type=float,default=0.2,help='kd!',required=False)
 
 
 
@@ -40,7 +43,8 @@ def main():
     print(pargs.edgemax)
 
     robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time,'ms':pargs.ms,
-                          'edgemax':pargs.edgemax,'bscan':pargs.bscan,'edgev':pargs.edgev})
+                          'edgemax':pargs.edgemax,'bscan':pargs.bscan,'edgev':pargs.edgev,
+                          'ki':pargs.ki,'kd':pargs.kd,'kp':pargs.kp})
 
     #robot.run_measure(10)
 
