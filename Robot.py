@@ -82,9 +82,9 @@ class Robot:
             self.measure(kwarg)
 
     def measure(self,**kwarg):
-        print("in measure")
+        print("in measure with:  "+ self.cs.mode)
         target_val = self.cs.value()
-        self._cs.reflected_light_intensity
+        self.cs.reflected_light_intensity
         print()
         print('refl line foll u know u shit'+str(self.cs.reflected_light_intensity))
         print("target v:" + str(targetvalue(target_val)))
