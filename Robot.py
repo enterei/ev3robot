@@ -118,7 +118,7 @@ class Robot:
         tank.on_for_rotations(-0.5,-0.5,kwargs.get('rot'))
 
         tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 900)
-        while self.cs.reflected_light_intensity> kwargs.get('edgev'):
+        while self.cs.reflected_light_intensity> 50:
             print(self.cs.reflected_light_intensity)
             tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
     def lineF(self,**kwargs):
