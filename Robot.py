@@ -121,7 +121,7 @@ class Robot:
         print(dict(kwargs))
 
         tank.follow_line(
-            kp=kwargs.get('kp'), ki=kwargs.get('ki'), kd=kwargs.get('kd'),
+
             follow_for=follow_for_ms,
             **kwargs
         )
