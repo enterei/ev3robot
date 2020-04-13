@@ -116,7 +116,7 @@ class Robot:
 
         tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
     def turn_corner(self,tank,**kwargs):
-        tank.on_for_seconds(-0.8,-0.8,kwargs.get('rot'))
+        tank.on_for_seconds(-1.0,-1.0,kwargs.get('rot'))
 
         tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 900)
         while self.cs.reflected_light_intensity> 50:
@@ -135,7 +135,7 @@ class Robot:
 
         res= tank.follow_line(
          #   kp=0.3, ki=0.05, kd=0.2,
-            follow_for=follow_for_ms,  #todo follow ms kwarg
+            follow_for=follow_for_forever  #todo follow ms kwarg
             **kwargs
         )
         if(res.get('ecke')==True and kwargs.get('turn')==True):
