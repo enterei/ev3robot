@@ -1838,7 +1838,7 @@ class LineFollowErrorTooFast(Exception):
 
 
 # line follower functions
-def follow_for_forever(tank):
+def follow_for_forever(tank,**kwargs):
     """
     ``tank``: the MoveTank object that is following a line
     """
