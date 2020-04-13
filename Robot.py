@@ -111,6 +111,10 @@ class Robot:
 
     def change_C_Mode(self,mode):
         self.cs.mode=mode
+    def turn(self,tank,**kwargs):
+
+        tank.on_for_rotations(-10,-10,kwargs.get('rot'))
+        tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
 
     def lineF(self,**kwargs):
         print(type(kwargs.get('ms')))
@@ -129,7 +133,7 @@ class Robot:
         )
         if(res.get('ecke')==True and kwargs.get('turn')==True):
             print('turn')
-            tank.on_for_degrees(kwargs.get('lspeed'),kwargs.get('rspeed'),kwargs.get('degrees'))
+            self.turn(tank,**kwargs)
         else:
             print(res.get('ecke'))
             print(kwargs.get('turn'))

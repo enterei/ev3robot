@@ -26,8 +26,8 @@ parser.add_argument('--kd',type=float,default=0.2,help='kd!',required=False)
 parser.add_argument('--lspeed',type=int,default=20,help='rsped!',required=False)
 parser.add_argument('--rspeed',type=int,default=0,help='lspeed!',required=False)
 parser.add_argument('--turn',type=bool,default=False,help='turn!',required=False)
-parser.add_argument('--degrees',type=int,default=90,help='deg!',required=False)
-
+parser.add_argument('--degrees',type=int,default=990,help='deg!',required=False)
+parser.add_argument('--rot',type=int,default=1,help='rot!',required=False)
 
 
 
@@ -53,7 +53,8 @@ def main():
     robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time,'ms':pargs.ms,
                           'edgemax':pargs.edgemax,'bscan':pargs.bscan,'edgev':pargs.edgev,
                           'ki':pargs.ki,'kd':pargs.kd,'kp':pargs.kp,
-                          'turn':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees
+                          'turn':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees,
+                          'rot':pargs.rot
                           })
 
     #robot.run_measure(10)
