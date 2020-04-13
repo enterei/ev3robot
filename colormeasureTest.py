@@ -53,7 +53,7 @@ def main():
     robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time,'ms':pargs.ms,
                           'edgemax':pargs.edgemax,'bscan':pargs.bscan,'edgev':pargs.edgev,
                           'ki':pargs.ki,'kd':pargs.kd,'kp':pargs.kp,
-                          'turn:':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees
+                          'turn':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees
                           })
 
     #robot.run_measure(10)
