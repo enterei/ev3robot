@@ -113,7 +113,7 @@ class Robot:
         self.cs.mode=mode
     def turn(self,tank,**kwargs):
 
-        tank.on_for_rotations(-10,-10,kwargs.get('rot'))
+        tank.on_for_rotations(-1,-1,kwargs.get('rot'))
         tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
 
     def lineF(self,**kwargs):
