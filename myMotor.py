@@ -2119,7 +2119,7 @@ class MoveTank(MotorSet):
 
 
             # Have we lost the line?
-            if reflected_light_intensity >= white:
+            if reflected_light_intensity >= 70:
                 off_line_count += 1
 
                 if off_line_count >= off_line_count_max:
