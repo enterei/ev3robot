@@ -116,9 +116,9 @@ class SpeedPercent(SpeedValue):
     """
 
     def __init__(self, percent, desc=None):
-        print('komme hier her')
-        print(desc)
-        print(type(percent))
+       # print('komme hier her')
+        #print(desc)
+        #print(type(percent))
         if percent < -100 or percent > 100:
             raise SpeedInvalid("invalid percentage {}, must be between -100 and 100 (inclusive)".format(percent))
         self.percent = percent

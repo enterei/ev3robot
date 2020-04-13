@@ -125,6 +125,6 @@ class Robot:
          #   kp=0.3, ki=0.05, kd=0.2,
             follow_for=follow_for_ms,  #todo follow ms kwarg
             **kwargs
-        ).get('ecke')==True):
+        ).get('ecke')==True and kwargs.get('turn')==True):
 
-            tank.on_for_degrees(5,0,90)
+            tank.on_for_degrees(kwargs.get('lspeed'),kwargs.get('rspeed'),kwargs.get('degrees'))
