@@ -84,7 +84,7 @@ class Robot:
     def measure(self,**kwarg):
         print("in measure")
         target_val = self.cs.value()
-        self.cs.reflected_light_intensity
+        self._cs.reflected_light_intensity
         print()
         print('refl line foll u know u shit'+str(self.cs.reflected_light_intensity))
         print("target v:" + str(targetvalue(target_val)))
