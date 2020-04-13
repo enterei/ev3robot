@@ -2101,7 +2101,7 @@ class MoveTank(MotorSet):
         speed = SpeedPercent(speed)
         speed_native_units = speed.to_native_units(self.left_motor)
 
-        while follow_for(self, kwargs.get('ms')):
+        while follow_for(self):
             reflected_light_intensity = self._cs.reflected_light_intensity
             print(reflected_light_intensity)
             error = target_light_intensity - reflected_light_intensity
