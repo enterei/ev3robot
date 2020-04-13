@@ -2828,6 +2828,9 @@ class MoveDifferential(MoveTank):
         # drive in a straight line to the target coordinates
         distance_mm = math.sqrt(pow(self.x_pos_mm - x_target_mm, 2) + pow(self.y_pos_mm - y_target_mm, 2))
         self.on_for_distance(speed, distance_mm, brake, block)
+    def turn_corner(self,**kwargs):
+        print("not r")
+
 
 
 class MoveJoystick(MoveTank):
