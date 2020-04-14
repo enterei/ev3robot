@@ -2095,7 +2095,7 @@ class MoveTank(MotorSet):
         edgeCountMax = kwargs.get('edgemax')
         if (kwargs.get('edgemax') == None): return
         edgeCountMax = kwargs.get('edgemax')
-
+        zerocounter=0
         # speed = speed_to_speedvalue(speed)
 
         speed = SpeedPercent(speed)
@@ -2151,7 +2151,11 @@ class MoveTank(MotorSet):
                        # return {'ecke': True}
                 else:
                     edgeCounter = 0
-
+            if target_light_intensity ==0:
+                zerocounter+=1
+                if zerocounter>15:
+                    self.stop()
+                    print('fuck u')
         self.stop()
 
     def follow_gyro_angle(self,
