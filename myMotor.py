@@ -2153,6 +2153,7 @@ class MoveTank(MotorSet):
                     edgeCounter = 0
             if self.ts.is_pressed:
                 self.stop()
+                raise ("deine mudda")
                 return
         self.stop()
 
