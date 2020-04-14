@@ -2152,7 +2152,7 @@ class MoveTank(MotorSet):
                 else:
                     edgeCounter = 0
             if self.ts.is_pressed:
-                self.stop()
+                return
         self.stop()
 
     def follow_gyro_angle(self,
