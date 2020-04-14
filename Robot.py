@@ -130,6 +130,7 @@ class Robot:
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
         tank = myMotor.MoveTank(OUTPUT_A,OUTPUT_B)
         tank.cs=ev3.ColorSensor()
+        tank.ts=ev3.TouchSensor()
         print(dict(kwargs))
         print(kwargs.get('lspeed'))
 

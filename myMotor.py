@@ -2151,11 +2151,8 @@ class MoveTank(MotorSet):
                        # return {'ecke': True}
                 else:
                     edgeCounter = 0
-            if target_light_intensity ==0:
-                zerocounter+=1
-                if zerocounter>10:
-                    self.stop()
-                    print('fuck u')
+            if self.ts.is_pressed:
+                self.stop()
         self.stop()
 
     def follow_gyro_angle(self,
