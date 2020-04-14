@@ -2153,7 +2153,7 @@ class MoveTank(MotorSet):
                     edgeCounter = 0
             if target_light_intensity ==0:
                 zerocounter+=1
-                if zerocounter>15:
+                if zerocounter>10:
                     self.stop()
                     print('fuck u')
         self.stop()
