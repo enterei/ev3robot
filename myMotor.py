@@ -2119,10 +2119,13 @@ class MoveTank(MotorSet):
 
 
             # Have we lost the line?
-            if reflected_light_intensity >= 60:
+            if reflected_light_intensity >= 52:
                 off_line_count += 1
 
                 if off_line_count >= off_line_count_max:
+                    print(left_speed)
+                    print(right_speed)
+                    print(target_light_intensity)
                     self.stop()
                     raise LineFollowErrorLostLine("we lost the line")
             else:
@@ -2152,6 +2155,7 @@ class MoveTank(MotorSet):
                 else:
                     edgeCounter = 0
             if self.ts.is_pressed:
+                print("target v: "+str(target_light_intensity))
                 self.stop()
                 raise ("deine mudda")
                 return
