@@ -55,7 +55,7 @@ def main():
                           'edgemax':pargs.edgemax,'bscan':pargs.bscan,'edgev':pargs.edgev,
                           'ki':pargs.ki,'kd':pargs.kd,'kp':pargs.kp,
                           'turn':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees,
-                          'rot':pargs.rot,'tlr':pargs.tlr
+                          'rot':pargs.rot,'target_light_intensity':pargs.tlr
                           })
 
     #robot.run_measure(10)
