@@ -152,7 +152,7 @@ class Robot:
 
     def readjust(self,tank,**kwargs):
       #  tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
-        while self.cs.reflected_light_intensity > 40:
+        while self.cs.reflected_light_intensity > 38:
             print(self.cs.reflected_light_intensity)
             tank.on_for_degrees(kwargs.get('lms')*-1, kwargs.get('rms')*-1, 10)
         return True
