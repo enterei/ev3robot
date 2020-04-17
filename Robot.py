@@ -143,6 +143,18 @@ class Robot:
         if(res.get('ecke')==True and kwargs.get('turn')==True):
             print('turn')
             self.turn_corner(tank,**kwargs)
-        else:
-            print(res.get('ecke'))
-            print(kwargs.get('turn'))
+        if res.get('return')=="off_line":
+            print('offline')
+            x = self.readjust(tank,**res)
+
+
+
+    def readjust(self,tank,**kwargs):
+      #  tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
+        while self.cs.reflected_light_intensity > 50:
+            print(self.cs.reflected_light_intensity)
+            tank.on_for_degrees(kwargs.get('lms')*-1, kwargs.get('rms')*-1, 10)
+        return True
+
+
+
