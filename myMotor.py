@@ -2127,7 +2127,7 @@ class MoveTank(MotorSet):
                     print(right_speed)
                     print(target_light_intensity)
                     self.stop()
-                    raise LineFollowErrorLostLine("we lost the line")
+                    #raise LineFollowErrorLostLine("we lost the line")
                     return{'return':'off_line','rms':right_speed,'lms':left_speed,'ecke':False}
             else:
                 off_line_count = 0
