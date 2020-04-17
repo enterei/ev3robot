@@ -133,19 +133,19 @@ class Robot:
         tank.ts=ev3.TouchSensor()
         print(dict(kwargs))
         print(kwargs.get('lspeed'))
-
-        res= tank.follow_line(
-         #   kp=0.3, ki=0.05, kd=0.2,
-            #follow_for=follow_for_forever, #todo follow ms kwarg
-            folow_for=follow_for_ms,
-            **kwargs
-        )
-        if(res.get('ecke')==True and kwargs.get('turn')==True):
-            print('turn')
-            self.turn_corner(tank,**kwargs)
-        if res.get('return')=="off_line":
-            print('offline')
-            x = self.readjust(tank,**res)
+        for i in range (5):
+            res= tank.follow_line(
+             #   kp=0.3, ki=0.05, kd=0.2,
+                #follow_for=follow_for_forever, #todo follow ms kwarg
+                folow_for=follow_for_ms,
+                **kwargs
+            )
+            if(res.get('ecke')==True and kwargs.get('turn')==True):
+                print('turn')
+                self.turn_corner(tank,**kwargs)
+            if res.get('return')=="off_line":
+                print('offline')
+                x = self.readjust(tank,**res)
 
 
 
