@@ -2092,6 +2092,9 @@ class MoveTank(MotorSet):
         off_line_count = 0
         totalEdgeCounter=0
         edgeCounter = 0
+        noEdge=False
+        noEdgeCounter=0
+
         edgev = kwargs.get('edgev')
         edgeCountMax = kwargs.get('edgemax')
         if (kwargs.get('edgemax') == None): return
@@ -2145,19 +2148,24 @@ class MoveTank(MotorSet):
                 self.stop()
                 raise LineFollowErrorTooFast("The robot is moving too fast to follow the line")
             #have we found an edge?
-            if not kwargs.get('bscan'):
+            if not noEdge:
                 #print('in kein bscan')
-                if reflected_light_intensity < edgev:
+                if reflected_light_intensity < edgev :
                     edgeCounter += 1
                     if edgeCounter > edgeCountMax:
                       #  self.stop()
                         print("ecke")
                         self.stop()
-                        time.sleep(10)
+                        time.sleep(2)
                         edgeCounter=0
+                        noEdge=True
                        # return {'ecke': True}
                 else:
                     edgeCounter = 0
+            else:
+                noEdgeCounter+=1
+                if edgeCounter > 15:
+                    noEdge=False
             if self.ts.is_pressed:
                 print("target v: "+str(target_light_intensity))
                 print('egdes found: '+str(totalEdgeCounter))
