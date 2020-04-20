@@ -2151,6 +2151,8 @@ class MoveTank(MotorSet):
             if not noEdge:
                 #print('in kein bscan')
                 if reflected_light_intensity < edgev :
+                    print('jetzt')
+
                     edgeCounter += 1
                     if edgeCounter > edgeCountMax:
                       #  self.stop()
