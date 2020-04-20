@@ -2167,7 +2167,7 @@ class MoveTank(MotorSet):
                     edgeCounter = 0
             else:
                 noEdgeCounter+=1
-                if edgeCounter > 15:
+                if noEdgeCounter > 15:
                     noEdge=False
             if self.ts.is_pressed:
                 print("target v: "+str(target_light_intensity))
