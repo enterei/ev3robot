@@ -2120,7 +2120,7 @@ class MoveTank(MotorSet):
             right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)
             # hit corner?
 
-         #   print(reflected_light_intensity)
+            print(reflected_light_intensity)
         #    print(noEdge)
             # Have we lost the line?
             if reflected_light_intensity >= 52:
