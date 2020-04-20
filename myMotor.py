@@ -2127,9 +2127,9 @@ class MoveTank(MotorSet):
                 off_line_count += 1
 
                 if off_line_count >= off_line_count_max:
-                    print(left_speed)
-                    print(right_speed)
-                    print(target_light_intensity)
+                    #print(left_speed)
+                   # print(right_speed)
+                  #  print(target_light_intensity)
                     self.stop()
                     #raise LineFollowErrorLostLine("we lost the line")
                     return{'return':'off_line','rms':right_speed,'lms':left_speed,'ecke':False}
@@ -2171,6 +2171,7 @@ class MoveTank(MotorSet):
                 print(right_speed)
                 if noEdgeCounter > 15:
                     noEdge=False
+                    noEdgeCounter=0
             if self.ts.is_pressed:
                 print("target v: "+str(target_light_intensity))
                 print('egdes found: '+str(totalEdgeCounter))
