@@ -2107,7 +2107,6 @@ class MoveTank(MotorSet):
         print('targetv: ' +str(target_light_intensity))
         while follow_for(self):
             reflected_light_intensity = self._cs.reflected_light_intensity
-            print(reflected_light_intensity)
             error = target_light_intensity - reflected_light_intensity
             integral = integral + error
             derivative = error - last_error
@@ -2121,7 +2120,8 @@ class MoveTank(MotorSet):
             right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)
             # hit corner?
 
-
+            print(reflected_light_intensity)
+            print(noEdge)
             # Have we lost the line?
             if reflected_light_intensity >= 52:
                 off_line_count += 1
