@@ -2158,6 +2158,7 @@ class MoveTank(MotorSet):
                         self.stop()
                         time.sleep(2)
                         edgeCounter=0
+                        totalEdgeCounter+=1
                         noEdge=True
                        # return {'ecke': True}
                 else:
