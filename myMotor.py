@@ -2120,8 +2120,8 @@ class MoveTank(MotorSet):
             right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)
             # hit corner?
 
-            print(reflected_light_intensity)
-            print(noEdge)
+         #   print(reflected_light_intensity)
+        #    print(noEdge)
             # Have we lost the line?
             if reflected_light_intensity >= 52:
                 off_line_count += 1
@@ -2151,7 +2151,7 @@ class MoveTank(MotorSet):
             if not noEdge:
                 #print('in kein bscan')
                 if reflected_light_intensity < edgev :
-                    print('jetzt')
+                    #print('jetzt')
 
                     edgeCounter += 1
                     if edgeCounter > edgeCountMax:
@@ -2167,6 +2167,8 @@ class MoveTank(MotorSet):
                     edgeCounter = 0
             else:
                 noEdgeCounter+=1
+                print(left_speed)
+                print(right_speed)
                 if noEdgeCounter > 15:
                     noEdge=False
             if self.ts.is_pressed:
