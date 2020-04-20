@@ -2169,6 +2169,7 @@ class MoveTank(MotorSet):
                 noEdgeCounter+=1
                 print(left_speed)
                 print(right_speed)
+                print(target_light_intensity)
                 if noEdgeCounter > 15:
                     noEdge=False
                     noEdgeCounter=0
