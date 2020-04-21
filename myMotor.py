@@ -2022,6 +2022,7 @@ class MoveTank(MotorSet):
                     off_line_count_max=15,
                     sleep_time=0.01,
                     follow_for=follow_for_forever,
+                    jf=False,
                     **kwargs):
         """
         PID line follower
@@ -2092,7 +2093,7 @@ class MoveTank(MotorSet):
         off_line_count = 0
         totalEdgeCounter=0
         edgeCounter = 0
-        noEdge=False
+        noEdge=jf#just found (default False but after order set true in kwargs)
         noEdgeCounter=0
 
         edgev = kwargs.get('edgev')
