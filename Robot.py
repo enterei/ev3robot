@@ -171,7 +171,7 @@ class Robot:
         strlen=len(orders)
         #idx=0
         res = self.lineF(**kwargs)
-        for i in orders:
+        for i in range (strlen) :
             if res.get('return')=="ecke":
                 if(orders[i]=='s'):
 
@@ -182,3 +182,5 @@ class Robot:
 
                 if (orders[i] == 'l'):
                     self.turn_corner(**kwargs)
+                    self.lineF(**kwargs)
+        return
