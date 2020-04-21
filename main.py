@@ -1,4 +1,4 @@
-from Robot import Robot
+#from Robot import Robot
 import sys
 from followline import LineFollower
 from ColorSensor import ColorSensor
@@ -10,9 +10,8 @@ from helper.resolver import resolve
 
 
 def main(*args):
-    robot = Robot()
-    robot.run_measure(10)
-    #resolve(gs)
+    x="gaa"
+    print(x[3])
 
 
 #mysocket = MySocket

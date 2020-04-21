@@ -1,3 +1,5 @@
+import string
+
 from Robot import Robot
 import sys
 import argparse
@@ -30,6 +32,8 @@ parser.add_argument('--turn',type=bool,default=False,help='turn!',required=False
 parser.add_argument('--degrees',type=int,default=990,help='deg!',required=False)
 parser.add_argument('--rot',type=float,default=1,help='rot!',required=False)
 
+parser.add_argument('--way',type=string,help='way!',required=False)
+
 
 
 
@@ -55,7 +59,7 @@ def main():
                           'edgemax':pargs.edgemax,'bscan':pargs.bscan,'edgev':pargs.edgev,
                           'ki':pargs.ki,'kd':pargs.kd,'kp':pargs.kp,
                           'turn':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees,
-                          'rot':pargs.rot,'target_light_intensity':pargs.tlr
+                          'rot':pargs.rot,'target_light_intensity':pargs.tlr,'way':pargs.way
                           })
 
     #robot.run_measure(10)

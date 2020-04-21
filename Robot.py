@@ -26,6 +26,12 @@ class Robot:
     socket = MySocket()
     colorS = ColorSensor()
     cs = ev3.ColorSensor();
+
+    tank = myMotor.MoveTank(OUTPUT_A, OUTPUT_B)
+    tank.cs = ev3.ColorSensor()
+    tank.ts = ev3.TouchSensor()
+
+
     assert cs.connected  # measures light intensity
     cs.mode = 'COL-REFLECT'  # measure light intensity
     #   cs.mode = 'RGB-RAW'  # measure light intensity
@@ -34,6 +40,7 @@ class Robot:
     assert lm.connected  # left motor
     rm = ev3.LargeMotor('outB');
     assert rm.connected  # right motor
+
 
     # dt = 5500
 
@@ -62,7 +69,8 @@ class Robot:
 
             self.lineF(**kwargs)
             self.lineF(**kwargs)
-
+        elif(ar=="way"):
+            self.goWay(**kwargs)
         elif (str(ar) != str("run")):
             print('a: ' + ar)
             print('a len: ' + str(len(ar)))
@@ -115,47 +123,60 @@ class Robot:
     def turn(self,tank,**kwargs):
 
         tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
-    def turn_corner(self,tank,**kwargs):
-        tank.on_for_seconds(-1.0,-1.0,kwargs.get('rot'))
+    def turn_corner(self,**kwargs):
+        self.tank.on_for_seconds(-1.0,-1.0,kwargs.get('rot'))
 
-        tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
+        self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
         while self.cs.reflected_light_intensity> 50:
             print(self.cs.reflected_light_intensity)
-            tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
+            self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
 
     def lineF(self,**kwargs):
         print(type(kwargs.get('ms')))
         print(kwargs.get('ms'))
         ga = int(kwargs.get('ms'))
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
-        tank = myMotor.MoveTank(OUTPUT_A,OUTPUT_B)
-        tank.cs=ev3.ColorSensor()
-        tank.ts=ev3.TouchSensor()
+
         print(dict(kwargs))
         print(kwargs.get('lspeed'))
-        for i in range (5):
-            res= tank.follow_line(
+        while(True):
+            res= self.tank.follow_line(
              #   kp=0.3, ki=0.05, kd=0.2,
                 #follow_for=follow_for_forever, #todo follow ms kwarg
                 folow_for=follow_for_ms,
                 **kwargs
             )
-            if(res.get('ecke')==True and kwargs.get('turn')==True):
-                print('turn')
-                self.turn_corner(tank,**kwargs)
+            print(res.get('return'))
             if res.get('return')=="off_line":
                 print('offline')
-                x = self.readjust(tank,**res)
+                x = self.readjust(**res)
+            else:
+                return res
 
 
 
 
-    def readjust(self,tank,**kwargs):
+    def readjust(self,**kwargs):
       #  tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
         while self.cs.reflected_light_intensity > 38:
           #  print(self.cs.reflected_light_intensity)
-            tank.on_for_degrees(kwargs.get('lms')*-1, kwargs.get('rms')*-1, 10)
+            self.tank.on_for_degrees(kwargs.get('lms')*-1, kwargs.get('rms')*-1, 10)
         return True
 
 
 
+    def goWay(self,**kwargs):
+        orders=kwargs.get('way')
+        len=len(orders)
+        idx=0
+        res = self.lineF(**kwargs)
+        for i in len:
+            if res.get('return')=="ecke":
+                if(orders[i]=='s'):
+                    res=self.lineF(**kwargs)
+
+                if(orders[i]=='r'):
+                    print('turnr')
+
+                if (orders[i] == 'l'):
+                    self.turn_corner(**kwargs)
