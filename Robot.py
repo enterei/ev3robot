@@ -178,9 +178,10 @@ class Robot:
                     res=self.lineF(**kwargs,jf=True)
 
                 if(orders[i]=='r'):
-                    print('turnr')
-
-                if (orders[i] == 'l'):
                     self.turn_corner(**kwargs)
                     self.lineF(**kwargs)
+
+                if (orders[i] == 'l'):
+                    print('turnl')
+
         return
