@@ -2162,7 +2162,7 @@ class MoveTank(MotorSet):
                         edgeCounter=0
                         totalEdgeCounter+=1
                         noEdge=True
-                       # return {'ecke': True}
+                        return {'return':'ecke'}
                 else:
                     edgeCounter = 0
             else:
