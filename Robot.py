@@ -183,5 +183,10 @@ class Robot:
 
                 if (orders[i] == 'l'):
                     print('turnl')
+                    help = kwargs.get('lspeed')
+                    kwargs['lspeed']=kwargs.get('rspeed')
+                    kwargs['rspeed']=help
+                    self.turn_corner(**kwargs)
+                    self.lineF()
 
         return
