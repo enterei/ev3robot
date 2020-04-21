@@ -135,7 +135,7 @@ class Robot:
     def lineF(self,**kwargs):
         print(type(kwargs.get('ms')))
         print(kwargs.get('ms'))
-        ga = int(kwargs.get('ms'))
+       # ga = int(kwargs.get('ms'))
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
 
         print(dict(kwargs))
