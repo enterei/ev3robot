@@ -187,6 +187,6 @@ class Robot:
                     kwargs['lspeed']=kwargs.get('rspeed')
                     kwargs['rspeed']=help
                     self.turn_corner(**kwargs)
-                    self.lineF()
+                    self.lineF(**kwargs)
 
         return
