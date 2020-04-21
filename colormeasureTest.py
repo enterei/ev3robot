@@ -32,7 +32,7 @@ parser.add_argument('--turn',type=bool,default=False,help='turn!',required=False
 parser.add_argument('--degrees',type=int,default=990,help='deg!',required=False)
 parser.add_argument('--rot',type=float,default=1,help='rot!',required=False)
 
-parser.add_argument('--way',type=string,help='way!',required=False)
+parser.add_argument('--way',type=str,help='way!',required=False)
 
 
 
