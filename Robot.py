@@ -68,7 +68,7 @@ class Robot:
         elif(ar=="fol"):
 
             self.lineF(**kwargs)
-            self.lineF(**kwargs)
+           # self.lineF(**kwargs)
         elif(ar=="way"):
             self.goWay(**kwargs)
         elif (str(ar) != str("run")):
