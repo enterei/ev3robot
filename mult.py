@@ -142,7 +142,7 @@ try:
                 if res:
                     print("len OUT: " + str(len(res)))
                    # res = json.loads(res.decode('utf-8'))
-                    loop= message_handler.handleMessage()
+                    loop= message_handler.handleMessage(res)
 
                 #else:
                     #print("not in res")
