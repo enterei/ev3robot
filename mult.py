@@ -22,7 +22,7 @@ messages = [b'Message 1 from client.', b'Message 2 from client.']
 messages ={'event':"ecke",'a':2}
 sel = selectors.DefaultSelector()
 # initializing dictionary
-messages = {'Aktion': 'Test', 'is': 2, 'best': 3}
+messages = {'Aktion': 'Test', 'is': 2, 'Case':"case1"}
 message_handler=SystemHandler()
 # printing original dictionary
 #print("The original dictionary is : " + str(test_dict))
@@ -102,6 +102,7 @@ def send(key,mask,m):
             sent = sock.send(m)  # Should be ready to write
             data.outb = data.outb[sent:]
             data.messages = None
+            print("send is over")
 def recv(key,mask):
     sock = key.fileobj
     data = key.data
