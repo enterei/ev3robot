@@ -1,3 +1,4 @@
+import argparse
 import selectors
 import socket
 import types
@@ -14,14 +15,15 @@ import time
 ####  klasse wurde verändert aufgeteilt und angepasst
 ####  zusätzliche informationen von:
 ####  https://docs.python.org/3/howto/sockets.html   über korrekte SOcket umplementierung
-from GameHandler import GameHandler
+
+from SystemHandler import SystemHandler
 
 messages = [b'Message 1 from client.', b'Message 2 from client.']
 messages ={'event':"ecke",'a':2}
 sel = selectors.DefaultSelector()
 # initializing dictionary
-messages = {'Aktion': 'Ecke', 'is': 2, 'best': 3}
-
+messages = {'Aktion': 'Test', 'is': 2, 'best': 3}
+message_handler=SystemHandler()
 # printing original dictionary
 #print("The original dictionary is : " + str(test_dict))
 
@@ -38,7 +40,6 @@ res_dict = json.loads(res_bytes.decode('utf-8'))
 # printing type and dict
 print("The type after conversion to dict is : " + str(type(res_dict)))
 print("The value after conversion to dict is : " + str(res_dict))
-game=GameHandler()
 
 
 def start_connections(host, port, num_conns):
@@ -122,11 +123,11 @@ if len(sys.argv) != 4:
     num_conns=1
 #host, port, num_conns = sys.argv[1:4]
 start_connections(host, int(port), int(num_conns))
-
-
-
+returnMessage = {'x':1}
+#robot = Robot()
+loop =True
 try:
-    while True:
+    while loop:
         events = sel.select(timeout=1)
         if events:
 
@@ -139,11 +140,9 @@ try:
                 res_bytes=None
                 if res:
                     print("len OUT: " + str(len(res)))
-                    res = json.loads(res.decode('utf-8'))
+                   # res = json.loads(res.decode('utf-8'))
+                    loop= message_handler.handleMessage()
 
-                    print("in res")
-
-                    print(res.get('Aktion'))
                 #else:
                     #print("not in res")
                     #print(res)
