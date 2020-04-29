@@ -2146,7 +2146,7 @@ class MoveTank(MotorSet):
                 if not kwargs.get('back'):
                     self.on(left_speed, right_speed)
                 else:
-                    self.on((-1)*right_speed,-left_speed)
+                    self.on((-1)*right_speed,(-1)*left_speed)
             except SpeedInvalid as e:
                 log.exception(e)
                 self.stop()
