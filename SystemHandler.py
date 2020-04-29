@@ -30,7 +30,7 @@ class SystemHandler:
         message=json.loads(message.decode('utf-8'))
         if(message.get('Aktion')=="Bewegung"):
             self.handleSystem(message)
-            if message.get('Bewegung')=='straight':
+            if message.get('Bewegung')=="straight":
                 message.update()
                 self.robot.goWay()
 
