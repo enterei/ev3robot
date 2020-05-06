@@ -28,8 +28,9 @@ class SystemHandler:
 
     def handleMessage(self,message):
         message=json.loads(message.decode('utf-8'))
+        print(message.get)
         if(message.get('Aktion')=="Bewegung"):
-            self.handleSystem(message)
+            ##self.handleSystem(message)
             if message.get('Bewegung')=="straight":
                 message.update()
                 self.robot.goWay()
