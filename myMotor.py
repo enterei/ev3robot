@@ -24,7 +24,6 @@ import sys
 import math
 import select
 import time
-import _thread
 
 # python3 uses collections
 # micropython uses ucollections
