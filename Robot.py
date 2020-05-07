@@ -175,7 +175,7 @@ class Robot:
             if res.get('return')=="ecke":
                 if(orders[i]=='s'):
 
-                    res=self.lineF(**kwargs,jf=True)
+                    res=self.lineF(**kwargs)
 
                 if(orders[i]=='r'):
                     self.turn_corner(**kwargs)
