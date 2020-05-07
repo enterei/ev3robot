@@ -2089,7 +2089,7 @@ class MoveTank(MotorSet):
         print(self.cs.mode)
         integral = 0.0
         last_error = 0.0
-        derivative = 0.0
+        derivative = 0.0f
         off_line_count = 0
         totalEdgeCounter=0
         edgeCounter = 0
@@ -2124,7 +2124,7 @@ class MoveTank(MotorSet):
             print(reflected_light_intensity)
         #    print(noEdge)
             # Have we lost the line?
-            if reflected_light_intensity >= 52:
+            if reflected_light_intensity >= 72:
                 off_line_count += 1
 
                 if off_line_count >= off_line_count_max:
