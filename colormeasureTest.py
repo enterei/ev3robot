@@ -31,6 +31,8 @@ parser.add_argument('--rspeed',type=int,default=0,help='lspeed!',required=False)
 parser.add_argument('--turn',type=bool,default=False,help='turn!',required=False)
 parser.add_argument('--degrees',type=int,default=990,help='deg!',required=False)
 parser.add_argument('--rot',type=float,default=1,help='rot!',required=False)
+parser.add_argument('--edgetest',type=bool,default=False,help='edgetest!',required=False)
+
 
 
 parser.add_argument('--back',type=bool,default=False,help='back!',required=False)
@@ -63,6 +65,7 @@ def main():
                           'ki':pargs.ki,'kd':pargs.kd,'kp':pargs.kp,
                           'turn':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees,
                           'rot':pargs.rot,'target_light_intensity':pargs.tlr,'way':pargs.way,'back':pargs.back
+                          ,'edgetest':pargs.edgetest
                           })
 
     #robot.run_measure(10)

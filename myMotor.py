@@ -2152,7 +2152,7 @@ class MoveTank(MotorSet):
                 self.stop()
                 raise LineFollowErrorTooFast("The robot is moving too fast to follow the line")
             #have we found an edge?
-            if not noEdge:
+            if not noEdge && kwargs.get('edgetest'):
                 #print('in kein bscan')
                 if reflected_light_intensity < edgev :
                     #print('jetzt')
