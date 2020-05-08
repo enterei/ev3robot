@@ -2089,7 +2089,7 @@ class MoveTank(MotorSet):
         print(self.cs.mode)
         integral = 0.0
         last_error = 0.0
-        derivative = 0.0f
+        derivative = 0.0
         off_line_count = 0
         totalEdgeCounter=0
         edgeCounter = 0
