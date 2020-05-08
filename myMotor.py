@@ -2124,7 +2124,7 @@ class MoveTank(MotorSet):
             print(reflected_light_intensity)
         #    print(noEdge)
             # Have we lost the line?
-            if reflected_light_intensity >= 72:
+            if reflected_light_intensity >= 58:
                 off_line_count += 1
 
                 if off_line_count >= off_line_count_max:
