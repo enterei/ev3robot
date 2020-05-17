@@ -21,9 +21,9 @@ parser.add_argument('--edgemax',type=int,default=2,help='edgemax!',required=Fals
 parser.add_argument('--edgev',type=int,default=21,help='tagarget_light_intensity!',required=False)
 parser.add_argument('--bscan',type=bool,default=False,help='bscan!',required=False)
 #follow
-parser.add_argument('--kp',type=float,default=0.3,help='kp!',required=False)
-parser.add_argument('--ki',type=float,default=0.05,help='ki!',required=False)
-parser.add_argument('--kd',type=float,default=0.2,help='kd!',required=False)
+parser.add_argument('--kp',type=float,default=3.0,help='kp!',required=False)
+parser.add_argument('--ki',type=float,default=0.00,help='ki!',required=False)
+parser.add_argument('--kd',type=float,default=0.0,help='kd!',required=False)
 parser.add_argument('--tlr',type=float,default=None,help='tlr!',required=False)
 #### turn
 parser.add_argument('--lspeed',type=int,default=20,help='rsped!',required=False)
@@ -32,6 +32,7 @@ parser.add_argument('--turn',type=bool,default=False,help='turn!',required=False
 parser.add_argument('--degrees',type=int,default=990,help='deg!',required=False)
 parser.add_argument('--rot',type=float,default=1,help='rot!',required=False)
 parser.add_argument('--edgetest',type=bool,default=False,help='edgetest!',required=False)
+parser.add_argument('--wsp',type=int,default=57,help='wsp!',required=False)
 
 
 
@@ -65,7 +66,7 @@ def main():
                           'ki':pargs.ki,'kd':pargs.kd,'kp':pargs.kp,
                           'turn':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees,
                           'rot':pargs.rot,'target_light_intensity':pargs.tlr,'way':pargs.way,'back':pargs.back
-                          ,'edgetest':pargs.edgetest
+                          ,'edgetest':pargs.edgetest,'wsp':pargs.wsp
                           })
 
     #robot.run_measure(10)
