@@ -2085,8 +2085,7 @@ class MoveTank(MotorSet):
 
         if target_light_intensity is None:
             target_light_intensity = self._cs.reflected_light_intensity
-        print(self._cs.mode)
-        print(self.cs.mode)
+
         integral = 0.0
         last_error = 0.0
         derivative = 0.0
