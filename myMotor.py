@@ -158,9 +158,9 @@ class SpeedNativeUnits(SpeedValue):
         """
         Return this SpeedNativeUnits as a number
         """
-        if self.native_counts > motor.max_speed:
-            raise SpeedInvalid("invalid native-units: {} max speed {}, {} was requested".format(
-                motor, motor.max_speed, self.native_counts))
+        #if self.native_counts > motor.max_speed:
+         #   raise SpeedInvalid("invalid native-units: {} max speed {}, {} was requested".format(
+          #      motor, motor.max_speed, self.native_counts))
         return self.native_counts
 
 
