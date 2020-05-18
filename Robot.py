@@ -184,11 +184,14 @@ class Robot:
         for i in range (strlen) :
             if res.get('return')=="ecke":
                 if(orders[i]=='s'):
+                    print("IN FUCKING STRAIGHT")
                     print(orders[i])
                     res=self.lineF(**kwargs)
                     print("res after lineF:"+dict(res))
 
                 if(orders[i]=='r'):
+                    print("IN FUCKING RIGHT")
+
                     print(orders[i])
 
                     self.turn_corner(**kwargs)
@@ -196,6 +199,8 @@ class Robot:
 
                 if (orders[i] == 'l'):
                     print(orders[i])
+                    print("IN FUCKING LEFRT")
+
                     help = kwargs.get('lspeed')
                     kwargs['lspeed']=kwargs.get('rspeed')
                     kwargs['rspeed']=help
