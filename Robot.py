@@ -176,8 +176,8 @@ class Robot:
 
     def goWay(self,**kwargs):
         orders=kwargs.get('way') #ORDAAAAAAAAAAAAAAAAAAAA
-        strlen=len(orders)
-        print(orders)
+        strlen=len("LENGHT OF FUCKING ORDERS"+orders)
+        print("ordeaaaaaaa: "+orders)
 
         #idx=0
         res = self.lineF(**kwargs)
