@@ -26,7 +26,7 @@ class Robot:
     socket = MySocket()
     colorS = ColorSensor()
     cs = ev3.ColorSensor();
-
+    
     tank = myMotor.MoveTank(OUTPUT_A, OUTPUT_B)
     tank.cs = ev3.ColorSensor()
     tank.ts = ev3.TouchSensor()
@@ -167,9 +167,9 @@ class Robot:
 #            self.tank.on_for_degrees(kwargs.get('lms')*-1, kwargs.get('rms')*-1, 10)
 
             if(right):
-                self.tank.on_for_degrees(0, kwargs.get('rms') * -1, 10)
+                self.tank.on_for_degrees(0, kwargs.get('rms') * -0.5, 10)
             else:
-                self.tank.on_for_degrees(kwargs.get('lms') * -1, 0, 10)
+                self.tank.on_for_degrees(kwargs.get('lms') * -0.5, 0, 10)
         return True
 
 
