@@ -176,7 +176,7 @@ class Robot:
 
     def goWay(self,**kwargs):
         orders=kwargs.get('way') #ORDAAAAAAAAAAAAAAAAAAAA
-        strlen=len("LENGHT OF FUCKING ORDERS"+orders)
+        strlen=len(orders)
         print("ordeaaaaaaa: "+orders)
 
         #idx=0
@@ -187,7 +187,7 @@ class Robot:
                     print("IN FUCKING STRAIGHT")
                     print(orders[i])
                     res=self.lineF(**kwargs)
-                    print("res after lineF:"+dict(res))
+                  #  print("res after lineF:"+dict(res))
 
                 if(orders[i]=='r'):
                     print("IN FUCKING RIGHT")
