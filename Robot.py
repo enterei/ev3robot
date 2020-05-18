@@ -177,22 +177,25 @@ class Robot:
     def goWay(self,**kwargs):
         orders=kwargs.get('way') #ORDAAAAAAAAAAAAAAAAAAAA
         strlen=len(orders)
+        print(orders)
 
         #idx=0
         res = self.lineF(**kwargs)
         for i in range (strlen) :
             if res.get('return')=="ecke":
                 if(orders[i]=='s'):
-
+                    print(orders[i])
                     res=self.lineF(**kwargs)
                     print("res after lineF:"+dict(res))
 
                 if(orders[i]=='r'):
+                    print(orders[i])
+
                     self.turn_corner(**kwargs)
                     self.lineF(**kwargs)
 
                 if (orders[i] == 'l'):
-                    print('turnl')
+                    print(orders[i])
                     help = kwargs.get('lspeed')
                     kwargs['lspeed']=kwargs.get('rspeed')
                     kwargs['rspeed']=help
