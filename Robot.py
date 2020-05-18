@@ -177,6 +177,7 @@ class Robot:
     def goWay(self,**kwargs):
         orders=kwargs.get('way') #ORDAAAAAAAAAAAAAAAAAAAA
         strlen=len(orders)
+
         #idx=0
         res = self.lineF(**kwargs)
         for i in range (strlen) :
@@ -184,6 +185,7 @@ class Robot:
                 if(orders[i]=='s'):
 
                     res=self.lineF(**kwargs)
+                    print("res after lineF:"+dict(res))
 
                 if(orders[i]=='r'):
                     self.turn_corner(**kwargs)

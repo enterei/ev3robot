@@ -2166,6 +2166,7 @@ class MoveTank(MotorSet):
                         totalEdgeCounter+=1
                         noEdge=True
                         if not kwargs.get('edgetest'):
+                            print("return ecke")
                             return {'return':'ecke'}
                 else:
                     edgeCounter = 0
