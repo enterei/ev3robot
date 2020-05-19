@@ -180,7 +180,8 @@ class Robot:
         print("ordeaaaaaaa: "+orders)
 
         #idx=0
-        res = self.lineF(**kwargs)
+       # res = self.lineF(**kwargs)
+        res={'return':"ecke"}
         for i in range (strlen) :
             if res.get('return')=="ecke":
                 if(orders[i]=='s'):
