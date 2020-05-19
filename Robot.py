@@ -145,7 +145,7 @@ class Robot:
             res= self.tank.follow_line(
              #   kp=0.3, ki=0.05, kd=0.2,
                 #follow_for=follow_for_forever, #todo follow ms kwarg
-                folow_for=follow_for_ms,jf=fj
+                folow_for=follow_for_ms,jf=fj,
                 **kwargs
             )
             print(res.get('return'))
