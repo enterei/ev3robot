@@ -37,7 +37,8 @@ class SystemHandler:
         if (message.get('Aktion') == "Bewegung"):
             ##self.handleSystem(message)
             if message.get('Bewegung') == "move":
-                message.update()
+             #   message.update()
+                print("in move")
                 self.robot.goWay(**message)
 
 
