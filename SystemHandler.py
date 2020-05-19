@@ -28,7 +28,7 @@ class SystemHandler:
 
     def handleMessage(self,message):
         message=json.loads(message.decode('utf-8'))
-        print(message.get)
+        print(message.get('Aktion'))
         if(message.get('Aktion')=="Bewegung"):
             ##self.handleSystem(message)
             if message.get('Bewegung')=="straight":
