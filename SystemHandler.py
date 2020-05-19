@@ -34,6 +34,11 @@ class SystemHandler:
             if message.get('Bewegung')=="straight":
                 message.update()
                 self.robot.goWay(**message)
+        if (message.get('Aktion') == "Bewegung"):
+            ##self.handleSystem(message)
+            if message.get('Bewegung') == "move":
+                message.update()
+                self.robot.goWay(**message)
 
 
     def handleBewegung(self,message):
