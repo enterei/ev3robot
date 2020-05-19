@@ -2155,7 +2155,7 @@ class MoveTank(MotorSet):
             if not noEdge :
                 #print('in kein bscan')
                 if reflected_light_intensity < edgev :
-                    #print('jetzt')
+                    print('jetzt')
 
                     edgeCounter += 1
                     if edgeCounter > edgeCountMax:
@@ -2176,7 +2176,7 @@ class MoveTank(MotorSet):
                 print(left_speed)
                 print(right_speed)
                 print(target_light_intensity)
-                if noEdgeCounter > 30:
+                if noEdgeCounter > 20:
                     noEdge=False
                     noEdgeCounter=0
             if self.ts.is_pressed:
