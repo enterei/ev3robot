@@ -2093,8 +2093,10 @@ class MoveTank(MotorSet):
         totalEdgeCounter=0
         edgeCounter = 0
         noEdge=jf#just found (default False but after order set true in kwargs)
-        noEdge=True
+       # noEdge=True
         noEdgeCounter=0
+        print("justfound:")
+        print(noEdge)
 
         edgev = kwargs.get('edgev')
         edgeCountMax = kwargs.get('edgemax')

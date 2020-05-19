@@ -135,6 +135,7 @@ class Robot:
     def lineF(self,**kwargs):
         print(type(kwargs.get('ms')))
         print(kwargs.get('ms'))
+        fj=True
        # ga = int(kwargs.get('ms'))
        # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
 
@@ -144,13 +145,14 @@ class Robot:
             res= self.tank.follow_line(
              #   kp=0.3, ki=0.05, kd=0.2,
                 #follow_for=follow_for_forever, #todo follow ms kwarg
-                folow_for=follow_for_ms,
+                folow_for=follow_for_ms,jf=fj
                 **kwargs
             )
             print(res.get('return'))
             if res.get('return')=="off_line":
                 print('offline')
                 x = self.readjust(**res)
+                fj=False
             else:
                 return res
 
