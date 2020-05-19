@@ -125,7 +125,6 @@ class Robot:
         tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
     def turn_corner(self,**kwargs):
         print('turn')
-        self.tank.on_for_seconds(-1.0,-1.0,kwargs.get('rot'))
 
         self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
         while self.cs.reflected_light_intensity> kwargs.get('target_light_intensity')+2:
@@ -196,6 +195,7 @@ class Robot:
                     print("IN FUCKING RIGHT")
 
                     print(orders[i])
+                    self.tank.on_for_seconds(-1.0, -1.0, kwargs.get('rot'))
 
                     self.turn_corner(**kwargs)
                     self.lineF(**kwargs)
