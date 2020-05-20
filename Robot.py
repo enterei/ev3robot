@@ -168,7 +168,7 @@ class Robot:
         while self.cs.reflected_light_intensity > kwargs.get('target_light_intensity')+2:  #todo i say kwargs targetet light reflection
           #  print(self.cs.reflected_light_intensity)
 #            self.tank.on_for_degrees(kwargs.get('lms')*-1, kwargs.get('rms')*-1, 10)
-
+            print(counter)
             if(right):
                 if counter<mc:
                     self.tank.on_for_degrees(0, kwargs.get('rms') * -0.5, 10)
