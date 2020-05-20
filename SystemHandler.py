@@ -43,7 +43,7 @@ class SystemHandler:
                 message={'Aktion':"Befehl"}
                 res_bytes = json.dumps(message).encode('utf-8')
                 res=True
-                res.m=res_bytes
+                res=res_bytes
                 return res
 
 

@@ -144,9 +144,9 @@ try:
                 if res:
                     print("len OUT: " + str(len(res)))
                    # res = json.loads(res.decode('utf-8'))
-                    loop= message_handler.handleMessage(res)
-                    if loop.m !=None:
-                        send(key,mask,loop.m)
+                    mes= message_handler.handleMessage(res)
+                    if mes !=None:
+                        send(key,mask,mes)
 
                 #else:
                     #print("not in res")
