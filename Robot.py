@@ -197,17 +197,23 @@ class Robot:
                     print(orders[i])
                     self.tank.on_for_seconds(-1.0, -1.0, kwargs.get('rot'))
 
-                    self.turn_corner(**kwargs)
+                    self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
+                    while self.cs.reflected_light_intensity > kwargs.get('target_light_intensity') + 2:
+                        print(self.cs.reflected_light_intensity)
+                        self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
                     self.lineF(**kwargs)
 
                 if (orders[i] == 'l'):
                     print(orders[i])
                     print("IN FUCKING LEFRT")
 
-                    help = kwargs.get('lspeed')
-                    kwargs['lspeed']=kwargs.get('rspeed')
-                    kwargs['rspeed']=help
-                    self.turn_corner(**kwargs)
+                #    help = kwargs.get('lspeed')
+                 #   kwargs['lspeed']=kwargs.get('rspeed')
+                  #  kwargs['rspeed']=help
+                    self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
+                    while self.cs.reflected_light_intensity > kwargs.get('target_light_intensity') + 2:
+                        print(self.cs.reflected_light_intensity)
+                        self.tank.on_for_degrees(kwargs.get('rspeed'), kwargs.get('lspeed'), 10)
                     self.lineF(**kwargs)
 
         return
