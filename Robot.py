@@ -180,7 +180,7 @@ class Robot:
                     self.tank.on_for_degrees(kwargs.get('lms') * -0.5, 0, 10)
                 else:
                     self.tank.on_for_degrees(0, kwargs.get('rms') * -0.5, 10)
-
+            counter=counter+1
         return True
 
 
