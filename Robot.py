@@ -216,5 +216,5 @@ class Robot:
                         self.tank.on_for_degrees(kwargs.get('rspeed'), kwargs.get('lspeed'), 10)
                     self.lineF(**kwargs)
 
-        return
+        return True
 

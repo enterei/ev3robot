@@ -39,7 +39,12 @@ class SystemHandler:
         if message.get('Aktion') == "move":
              #   message.update()
             print("in move")
-            self.robot.goWay(**message)
+            if self.robot.goWay(**message):
+                message={'Aktion':"Befehl"}
+                res_bytes = json.dumps(message).encode('utf-8')
+                res=True
+                res.m=res_bytes
+                return res
 
 
     def handleBewegung(self,message):
