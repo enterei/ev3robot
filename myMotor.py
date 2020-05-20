@@ -2178,7 +2178,7 @@ class MoveTank(MotorSet):
                 print(left_speed)
                 print(right_speed)
                 print(target_light_intensity)
-                if noEdgeCounter > 20:
+                if noEdgeCounter > 12:
                     noEdge=False
                     noEdgeCounter=0
             if self.ts.is_pressed:
