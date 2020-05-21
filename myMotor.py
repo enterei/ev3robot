@@ -2160,7 +2160,7 @@ class MoveTank(MotorSet):
                     print('jetzt')
 
                     edgeCounter += 1
-                    if edgeCounter >= edgeCountMax:
+                    if edgeCounter >= edgeCountMax: #todo oder einfach langsamer nach als da sg gleihh
                       #  self.stop()
                         print("ecke")
                         self.stop()
