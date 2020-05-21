@@ -121,7 +121,7 @@ def recv(key,mask):
             sock.close()
 if len(sys.argv) != 4:
     print("usage:", sys.argv[0], "<host> <port> <num_connections>")
-    host  = '192.168.0.179'
+    host  = '192.168.0.178'
     port = '65432'
     num_conns=1
 #host, port, num_conns = sys.argv[1:4]
