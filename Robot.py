@@ -161,7 +161,7 @@ class Robot:
     def readjust(self,**kwargs):
         right =False
         counter =0
-        mc=30
+        mc=50
         if kwargs.get('lms')< (kwargs.get('rms')):
             right=True
       #  tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
