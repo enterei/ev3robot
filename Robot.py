@@ -223,7 +223,8 @@ class Robot:
                     self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
                     while self.cs.reflected_light_intensity > kwargs.get('target_light_intensity') + 2:
                         print(self.cs.reflected_light_intensity)
-                        self.tank.on_for_degrees(kwargs.get('lspeed'), 0, 10)
+                        self.tank.on_for_degrees(kwargs.get('rspeed'), kwargs.get('lspeed'), 10)
+                      #  self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
                     self.lineF(**kwargs)
 
 
@@ -237,7 +238,8 @@ class Robot:
                     self.tank.on_for_degrees(kwargs.get('rspeed'), kwargs.get('lspeed'), kwargs.get('degrees'))
                     while self.cs.reflected_light_intensity > kwargs.get('target_light_intensity') + 2:
                         print(self.cs.reflected_light_intensity)
-                        self.tank.on_for_degrees(0, kwargs.get('lspeed'), 10)
+                        self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
+                        #self.tank.on_for_degrees(kwargs.get('rspeed'), kwargs.get('lspeed'), 10)
                     self.lineF(**kwargs)
 
         return True
