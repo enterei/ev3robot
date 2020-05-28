@@ -30,9 +30,12 @@ parser.add_argument('--lspeed',type=int,default=20,help='rsped!',required=False)
 parser.add_argument('--rspeed',type=int,default=0,help='lspeed!',required=False)
 parser.add_argument('--turn',type=bool,default=False,help='turn!',required=False)
 parser.add_argument('--degrees',type=int,default=250,help='deg!',required=False)
-parser.add_argument('--rot',type=float,default=3,help='rot!',required=False)
+parser.add_argument('--rot',type=float,default=0,help='rot!',required=False)
 parser.add_argument('--edgetest',type=bool,default=False,help='edgetest!',required=False)
 parser.add_argument('--wsp',type=int,default=76,help='wsp!',required=False)
+parser.add_argument('--uspeed',type=int,default=1,help='deg!',required=False)
+parser.add_argument('--ulspeed',type=float,default=3,help='rot!',required=False)
+parser.add_argument('--urspeed',type=float,default=3,help='rot!',required=False)
 
 
 
@@ -66,7 +69,7 @@ def main():
                           'ki':pargs.ki,'kd':pargs.kd,'kp':pargs.kp,
                           'turn':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees,
                           'rot':pargs.rot,'target_light_intensity':pargs.tlr,'way':pargs.way,'back':pargs.back
-                          ,'edgetest':pargs.edgetest,'wsp':pargs.wsp
+                          ,'edgetest':pargs.edgetest,'wsp':pargs.wsp,'ulspeed':pargs.ulspeed,'urspeed':pargs.urspeed,'uspeed':pargs.uspeed
                           })
 
     #robot.run_measure(10)

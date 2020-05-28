@@ -218,9 +218,9 @@ class Robot:
                     print("IN FUCKING RIGHT")
 
                     print(orders[i])
-               #     self.tank.on_for_seconds(-1.0, -1.0, kwargs.get('rot'))
+                    self.tank.on_for_seconds(kwargs.get('uspeed'),kwargs.get('uspeed'), kwargs.get('rot'))
 
-                    self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
+                    self.tank.on_for_degrees(kwargs.get('ulspeed'), kwargs.get('urspeed'), kwargs.get('degrees'))
                     while self.cs.reflected_light_intensity > kwargs.get('target_light_intensity') + 2:
                         print(self.cs.reflected_light_intensity)
                         self.tank.on_for_degrees(kwargs.get('rspeed'), kwargs.get('lspeed'), 10)
