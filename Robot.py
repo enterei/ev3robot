@@ -105,6 +105,7 @@ class Robot:
         print("raw: " + str(self.cs.raw))
 
         self.cs.mode = 'COL-COLOR'
+        print("in measure with:  "+ self.cs.mode)
 
         print("COL COLOR")
         print("refl line foll u know u shit: " + str(self.cs.reflected_light_intensity))
