@@ -235,7 +235,9 @@ class Robot:
                 #    help = kwargs.get('lspeed')
                  #   kwargs['lspeed']=kwargs.get('rspeed')
                   #  kwargs['rspeed']=help
-                    self.tank.on_for_degrees(kwargs.get('rspeed'), kwargs.get('lspeed'), kwargs.get('degrees'))
+                    self.tank.on_for_seconds(kwargs.get('uspeed'),kwargs.get('uspeed'), kwargs.get('rot'))
+
+                    self.tank.on_for_degrees(kwargs.get('urspeed'), kwargs.get('ulspeed'), kwargs.get('degrees'))
                     while self.cs.reflected_light_intensity > kwargs.get('target_light_intensity') + 2:
                         print(self.cs.reflected_light_intensity)
                         self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
