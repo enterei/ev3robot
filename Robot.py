@@ -104,6 +104,18 @@ class Robot:
 
         print("raw: " + str(self.cs.raw))
 
+        self.cs.mode = 'COL-COLOR'
+
+        print("COL COLOR")
+        print("refl line foll u know u shit: " + str(self.cs.reflected_light_intensity))
+        print("target v:" + str(targetvalue(target_val)))
+
+        print("red: " + str(self.cs.red))
+        print("green: " + str(self.cs.green))
+        print("blue:" + str(self.cs.blue))
+
+        print("raw: " + str(self.cs.raw))
+
     def run(self,**kwarg):
         print("in run")
         print('kwarg: power '+str(kwarg.power))
