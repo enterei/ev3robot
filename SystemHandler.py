@@ -45,6 +45,8 @@ class SystemHandler:
                 res=True
                 res=res_bytes
                 return res
+        if message.get('Aktion')=="wait":
+            return self.wait()
 
 
     def handleBewegung(self,message):
@@ -97,4 +99,11 @@ class SystemHandler:
         print(self.Table[3][0]+" "+self.Table[3][1]," "+self.Table[3][2]+ " "+self.Table[3][3])
 
 
+    def wait(self):
+        while True:
+            if self.robot.ts.is_pressed:
+                break
 
+        message = {'Aktion': "endwait"}
+        res_bytes = json.dumps(message).encode('utf-8')
+        return res_bytes

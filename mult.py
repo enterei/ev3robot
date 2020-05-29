@@ -23,7 +23,9 @@ messages ={'event':"ecke",'a':2}
 sel = selectors.DefaultSelector()
 # initializing dictionary
 messages = {'Aktion': 'Test', 'is': 2, 'Case':"case1"}
-messages = {'Aktion': 'Befehl', 'is': 2, 'Case':"case1"}
+messages = {'Aktion': 'Test', 'is': 2, 'Case':"case2"}
+
+#messages = {'Aktion': 'Befehl', 'is': 2, 'Case':"case1"}
 
 message_handler=SystemHandler()
 # printing original dictionary
