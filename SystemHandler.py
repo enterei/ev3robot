@@ -47,6 +47,14 @@ class SystemHandler:
                 return res
         if message.get('Aktion')=="wait":
             return self.wait()
+        if message.get('Aktion')=="scan":
+            if self.robot.goWay(**message):
+               # message = {'Aktion': "Befehl"}
+                #res_bytes = json.dumps(message).encode('utf-8')
+                #res = True
+                #res = res_bytes
+                return self.robot.measure()
+
 
 
     def handleBewegung(self,message):
@@ -72,25 +80,7 @@ class SystemHandler:
     def setGoal(self,corner):
         self.target=corner
 
-    def lookUp(self,idx):
-        if(idx == 0):
-            return [2,0]
-        if (idx == 1):
-            return [2, 1]
-        if (idx == 2):
-            return [2, 2]
-        if (idx == 3):
-            return [1, 0]
-        if (idx == 4):
-            return [1, 1]
-        if (idx == 5):
-            return [1, 2]
-        if (idx == 6):
-            return [0, 0]
-        if (idx == 7):
-            return [0, 1]
-        if (idx == 8):
-            return [0, 2]
+
 
     def print(self):
         print(self.Table[0][0]+" "+self.Table[0][1]," "+self.Table[0][2]+ " "+self.Table[0][3])
@@ -104,6 +94,6 @@ class SystemHandler:
             if self.robot.tank.ts.is_pressed:
                 break
 
-        message = {'Aktion': "endwait"}
+        message = {'Aktion': "waitOver"}
         res_bytes = json.dumps(message).encode('utf-8')
         return res_bytes

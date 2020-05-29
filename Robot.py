@@ -1,3 +1,5 @@
+import json
+
 import myMotor
 from MySocket import MySocket
 from ColorSensor import ColorSensor
@@ -86,7 +88,7 @@ class Robot:
 
 
         self.goWay(**kwarg)
-        print(self.measure(**kwarg))
+        print(self.measure())
     def measure(self,**kwarg):
         print("in measure with:  "+ self.cs.mode)
         target_val = self.cs.value()
@@ -113,10 +115,11 @@ class Robot:
         print("blue:" + str(self.cs.blue))
 
         print("raw: " + str(self.cs.raw))
-
+        messages = {'Aktion': 'Befehl', 'is': 2, 'found': False}
         if self.cs.red>180:
-            return True
-        return False
+            messages = {'Aktion': 'Befehl', 'is': 2, 'found': True}
+
+        return json.dumps(messages).encode('utf-8')
 
     def run(self,**kwarg):
         print("in run")
