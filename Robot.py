@@ -85,11 +85,8 @@ class Robot:
     def run_measure(self,**kwarg):
 
 
-        print("in run_measure")
-        for i in range(kwarg.time):
-            self.run(kwarg)
-            self.measure(kwarg)
-
+        self.goWay(**kwarg)
+        print(self.measure(**kwarg))
     def measure(self,**kwarg):
         print("in measure with:  "+ self.cs.mode)
         target_val = self.cs.value()
@@ -116,6 +113,10 @@ class Robot:
         print("blue:" + str(self.cs.blue))
 
         print("raw: " + str(self.cs.raw))
+
+        if self.cs.red>180:
+            return True
+        return False
 
     def run(self,**kwarg):
         print("in run")
