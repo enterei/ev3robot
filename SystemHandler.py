@@ -101,7 +101,7 @@ class SystemHandler:
 
     def wait(self):
         while True:
-            if self.robot.ts.is_pressed:
+            if self.robot.tank.ts.is_pressed:
                 break
 
         message = {'Aktion': "endwait"}
