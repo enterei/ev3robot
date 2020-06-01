@@ -2019,7 +2019,7 @@ class MoveTank(MotorSet):
                     target_light_intensity=None,
                     follow_left_edge=True,
                     white=60,
-                    off_line_count_max=18,
+                    off_line_count_max=20,
                     sleep_time=0.01,
                     follow_for=follow_for_forever,
                     jf=False,
