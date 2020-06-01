@@ -94,6 +94,6 @@ class SystemHandler:
             if self.robot.tank.ts.is_pressed:
                 break
 
-        message = {'Aktion': "waitOver"}
+        message = {'Aktion': "Befehl",'Status':'WaitOver'}
         res_bytes = json.dumps(message).encode('utf-8')
         return res_bytes

@@ -115,9 +115,9 @@ class Robot:
         print("blue:" + str(self.cs.blue))
 
         print("raw: " + str(self.cs.raw))
-        messages = {'Aktion': 'scan', 'is': 2, 'found': False}
+        messages = {'Aktion': 'Befehl', 'is': 2, 'found': False}
         if self.cs.red<80 and self.cs.blue>95 and self.cs.green>95:
-            messages = {'Aktion': 'scan', 'is': 2, 'found': True}
+            messages = {'Aktion': 'Befehl', 'is': 2, 'found': True}
 
         return json.dumps(messages).encode('utf-8')
 
