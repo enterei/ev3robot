@@ -212,6 +212,7 @@ class Robot:
         res={'return':"ecke"}
         for i in range (strlen) :
             if res.get('return')=="ecke":
+                self.cs.mode='COL-REFLECT'
                 if(orders[i]=='s'):
                     print("IN FUCKING STRAIGHT")
                     print(orders[i])
