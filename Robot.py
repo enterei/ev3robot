@@ -58,8 +58,8 @@ class Robot:
             #    self.time=value
         print("robo cmode: " + str(self.cs.mode))
     def makesound(self):
-        Sound.tone([(264, 500, 200), (352, 500, 200),(528, 1000, 100)]).wait()
-        Sound.play('erorr.wav').wait()
+        #Sound.tone([(264, 500, 200), (352, 500, 200),(528, 1000, 100)]).wait()
+        Sound.play('error.wav').wait()
 
     def run_modes(self, ar, **kwargs):
         print("rmode: " + str(ar))
