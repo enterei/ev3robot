@@ -21,6 +21,7 @@ time = 10
 
 
 class Robot:
+
     power = 200
     dt = 500
     speed = 200
@@ -55,6 +56,8 @@ class Robot:
             #if(keys=='time'):
             #    self.time=value
         print("robo cmode: " + str(self.cs.mode))
+    def makesound(self):
+        Sound.tone(1500, 2000).wait()
 
     def run_modes(self, ar, **kwargs):
         print("rmode: " + str(ar))
