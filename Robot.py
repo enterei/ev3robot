@@ -61,6 +61,7 @@ class Robot:
         #Sound.tone([(264, 500, 200), (352, 500, 200),(528, 1000, 100)]).wait()
        # Sound.play('error.wav').wait()
         Sound.speak('Hello, my name is E V 3!').wait()
+        Sound.speak('I play Tic Tac Toe Motherfucker')
     def run_modes(self, ar, **kwargs):
         print("rmode: " + str(ar))
      #   print(args.__len__())
