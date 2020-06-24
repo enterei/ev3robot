@@ -61,7 +61,7 @@ class Robot:
         #Sound.tone([(264, 500, 200), (352, 500, 200),(528, 1000, 100)]).wait()
         #Sound.play('VOLUME_uq83n-e4wo7.wav').wait()
         Sound.speak('Hello, my name is E V 3!').wait()
-        Sound.speak('I play Tic Tac Toe Mother').wait()
+        Sound.speak('I play Tic Tac Toe Mother beep').wait()
         Sound.tone(264, 2000)
 
     def run_modes(self, ar, **kwargs):
