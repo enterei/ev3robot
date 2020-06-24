@@ -1,3 +1,5 @@
+from Robot import Robot
+
 parser = argparse.ArgumentParser(description="rosolve robo modes")
 parser.add_argument('rmode',type=str,help='rmode!')
 parser.add_argument('--cmode',type=int,default=1,help='cmode!',required=False)
@@ -39,4 +41,5 @@ print(pargs.cmode)
 #  print(pargs.speed)
 
 robot = Robot(cmode=pargs.cmode)
+
 robot.makesound()
