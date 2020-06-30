@@ -63,15 +63,15 @@ def main():
     print('parks.rmode  :' + pargs.rmode)
     #assert pargs.edgemax
     print(pargs.edgemax)
-    robot.makesound()
+    #robot.makesound()
 
-   # robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time,'ms':pargs.ms,
-    #                      'edgemax':pargs.edgemax,'bscan':pargs.bscan,'edgev':pargs.edgev,
-     #                     'ki':pargs.ki,'kd':pargs.kd,'kp':pargs.kp,
-      #                    'turn':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees,
-       #                   'rot':pargs.rot,'target_light_intensity':pargs.tlr,'way':pargs.way,'back':pargs.back
-        #                  ,'edgetest':pargs.edgetest,'wsp':pargs.wsp,'ulspeed':pargs.ulspeed,'urspeed':pargs.urspeed,'uspeed':pargs.uspeed
-         #                 })*/
+    robot.run_modes(ar,**{'speed':pargs.speed,'time':pargs.time,'ms':pargs.ms,
+                          'edgemax':pargs.edgemax,'bscan':pargs.bscan,'edgev':pargs.edgev,
+                          'ki':pargs.ki,'kd':pargs.kd,'kp':pargs.kp,
+                          'turn':pargs.turn,'lspeed':pargs.lspeed,'rspeed':pargs.rspeed,'degrees':pargs.degrees,
+                          'rot':pargs.rot,'target_light_intensity':pargs.tlr,'way':pargs.way,'back':pargs.back
+                          ,'edgetest':pargs.edgetest,'wsp':pargs.wsp,'ulspeed':pargs.ulspeed,'urspeed':pargs.urspeed,'uspeed':pargs.uspeed
+                          })
 
     #robot.run_measure(10)
 
