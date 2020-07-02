@@ -90,6 +90,7 @@ class SystemHandler:
 
 
     def wait(self):
+        self.robot.makebeep()
         while True:
             if self.robot.tank.ts.is_pressed:
                 break

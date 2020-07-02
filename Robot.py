@@ -63,6 +63,8 @@ class Robot:
         Sound.speak('Hello, my name is E V 3!').wait()
         Sound.speak('I play Tic Tac Toe Motherfucker').wait()
         Sound.tone(264, 2000)
+    def makebeep(self):
+        Sound.tone(264, 2000)
 
     def run_modes(self, ar, **kwargs):
         print("rmode: " + str(ar))
