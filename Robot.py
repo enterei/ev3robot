@@ -131,6 +131,7 @@ class Robot:
         messages = {'Aktion': 'Befehl', 'is': 2, 'found': False}
         if self.cs.red<86 and self.cs.blue>95 and self.cs.green>95:
             messages = {'Aktion': 'Befehl', 'is': 2, 'found': True}
+            self.makebeep()
 
         return json.dumps(messages).encode('utf-8')
 
