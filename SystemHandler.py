@@ -30,7 +30,7 @@ class SystemHandler:
         message=json.loads(message.decode('utf-8'))
         print(message.get('Aktion'))
         if(message.get('gameEndSound')=="True"):
-            self.robot.gameEndSound()
+            self.robot.endGameSound()
         if(message.get('Aktion')=="Bewegung"):
             ##self.handleSystem(message)
             if message.get('Bewegung')=="straight":
