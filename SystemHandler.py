@@ -29,6 +29,8 @@ class SystemHandler:
     def handleMessage(self,message):
         message=json.loads(message.decode('utf-8'))
         print(message.get('Aktion'))
+        if(message.get('gameEndSound')=="True"):
+            self.robot.gameEndSound()
         if(message.get('Aktion')=="Bewegung"):
             ##self.handleSystem(message)
             if message.get('Bewegung')=="straight":
@@ -98,3 +100,5 @@ class SystemHandler:
         message = {'Aktion': "Befehl",'Status':'WaitOver'}
         res_bytes = json.dumps(message).encode('utf-8')
         return res_bytes
+
+

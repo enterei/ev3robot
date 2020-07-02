@@ -66,6 +66,9 @@ class Robot:
     def makebeep(self):
         Sound.tone(264, 2000)
 
+    def endGameSound(self):
+        Sound.tone([264, 200,20],[268,200,20],[272,200,20])
+
     def run_modes(self, ar, **kwargs):
         print("rmode: " + str(ar))
      #   print(args.__len__())
