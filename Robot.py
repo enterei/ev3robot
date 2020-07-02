@@ -67,7 +67,7 @@ class Robot:
         Sound.tone(264, 2000)
 
     def endGameSound(self):
-        Sound.tone([(264,200,20),(268,200,20)(272,200,20)]).wait()
+        Sound.tone([(264,200,20),(268,200,20),(272,200,20)]).wait()
 
     def run_modes(self, ar, **kwargs):
         print("rmode: " + str(ar))
