@@ -60,9 +60,13 @@ class Robot:
     def makesound(self):
         #Sound.tone([(264, 500, 200), (352, 500, 200),(528, 1000, 100)]).wait()
         #Sound.play('VOLUME_uq83n-e4wo7.wav').wait()
+        print("ready")
+        while True:
+            if self.tank.ts.is_pressed:
+                break
         Sound.speak('Hello, my name is E V 3!').wait()
-        Sound.speak('I play Tic Tac Toe Motherfucker').wait()
-        Sound.tone(264, 2000)
+        Sound.speak('I play Tic Tac Toe').wait()
+       # Sound.tone(264, 2000)
     def makebeep(self):
         Sound.tone(264, 2000)
 
@@ -86,6 +90,8 @@ class Robot:
            # self.lineF(**kwargs)
         elif(ar=="way"):
             self.goWay(**kwargs)
+        elif(ar=="speak"):
+            self.makebeep()
         elif (str(ar) != str("run")):
             print('a: ' + ar)
             print('a len: ' + str(len(ar)))
