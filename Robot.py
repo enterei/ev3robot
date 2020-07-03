@@ -91,7 +91,7 @@ class Robot:
         elif(ar=="way"):
             self.goWay(**kwargs)
         elif(ar=="speak"):
-            self.makebeep()
+            self.makesound()
         elif (str(ar) != str("run")):
             print('a: ' + ar)
             print('a len: ' + str(len(ar)))
