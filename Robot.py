@@ -66,9 +66,9 @@ class Robot:
                 break
         Sound.speak('Hello, my name is E V 3!').wait()
         Sound.speak('I play Tic Tac Toe').wait()
-        Sound.speak('Oliver is preparing the GamingEnviroment')
-        Sound.speak('I hope he hurries')
-        Sound.speak('I am running out of text')
+        Sound.speak('Oliver is preparing the GamingEnviroment').wait()
+        Sound.speak('I hope he hurries').wait()
+        Sound.speak('I am running out of text').wait()
 
        # Sound.tone(264, 2000)
     def makebeep(self):
