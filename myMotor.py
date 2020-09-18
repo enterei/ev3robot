@@ -2106,7 +2106,6 @@ class MoveTank(MotorSet):
         if (kwargs.get('edgemax') == None): return
         edgeCountMax = kwargs.get('edgemax')
         zerocounter=0
-        # speed = speed_to_speedvalue(speed)
 
         speed = SpeedPercent(speed) #get ground speed
         speed_native_units = speed.to_native_units(self.left_motor)
@@ -2124,10 +2123,7 @@ class MoveTank(MotorSet):
 
             left_speed = SpeedNativeUnits(speed_native_units - turn_native_units) #apply correction value
             right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)#apply correction value
-            # hit corner?
 
-          #  print(reflected_light_intensity)
-        #    print(noEdge)
             # Have we lost the line?
             if reflected_light_intensity >= kwargs.get('wsp'): #wsp = whitespace value
                 off_line_count += 1
@@ -2180,7 +2176,6 @@ class MoveTank(MotorSet):
                 print("target v: "+str(target_light_intensity))
                 print('egdes found: '+str(totalEdgeCounter))
                 self.stop()
-                raise ("deine mudda")
                 return
         self.stop()
 
