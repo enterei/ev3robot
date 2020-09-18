@@ -20,6 +20,9 @@
 # THE SOFTWARE.
 # -----------------------------------------------------------------------------
 
+
+# This is a variation of the motor class by ev3dev
+#most of the functions stayed the same but Oliver Lell changed espicially the line following function and its associated functions
 import sys
 import math
 import select
@@ -2105,39 +2108,35 @@ class MoveTank(MotorSet):
         zerocounter=0
         # speed = speed_to_speedvalue(speed)
 
-        speed = SpeedPercent(speed)
+        speed = SpeedPercent(speed) #get ground speed
         speed_native_units = speed.to_native_units(self.left_motor)
-        print('targetv: ' +str(target_light_intensity))
+
         while follow_for(self):
-            reflected_light_intensity = self._cs.reflected_light_intensity
-            error = target_light_intensity - reflected_light_intensity
-            integral = integral + error
-            derivative = error - last_error
+            reflected_light_intensity = self._cs.reflected_light_intensity #get actual light intensity
+            error = target_light_intensity - reflected_light_intensity #calculate error
+            integral = integral + error # calculate integral error
+            derivative = error - last_error  # difference to last error
             last_error = error
-            turn_native_units = (kp * error) + (ki * integral) + (kd * derivative)
+            turn_native_units = (kp * error) + (ki * integral) + (kd * derivative) # calculate correction value
 
             if not follow_left_edge:
                 turn_native_units *= -1
 
-            left_speed = SpeedNativeUnits(speed_native_units - turn_native_units)
-            right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)
+            left_speed = SpeedNativeUnits(speed_native_units - turn_native_units) #apply correction value
+            right_speed = SpeedNativeUnits(speed_native_units + turn_native_units)#apply correction value
             # hit corner?
 
           #  print(reflected_light_intensity)
         #    print(noEdge)
             # Have we lost the line?
-            if reflected_light_intensity >= kwargs.get('wsp'):
+            if reflected_light_intensity >= kwargs.get('wsp'): #wsp = whitespace value
                 off_line_count += 1
-
-                if off_line_count >= off_line_count_max:
-                    #print(left_speed)
-                   # print(right_speed)
-                  #  print(target_light_intensity)
+                if off_line_count >= off_line_count_max: # how often detect whitespcace to stop
                     self.stop()
-                    #raise LineFollowErrorLostLine("we lost the line")
                     return{'return':'off_line','rms':right_speed,'lms':left_speed,'ecke':False,'target_light_intensity':target_light_intensity}
+                    #values for readjust(**kwargs)
             else:
-                off_line_count = 0
+                off_line_count = 0  #reset when line found
 
             if sleep_time:
                 time.sleep(sleep_time)
@@ -2157,12 +2156,8 @@ class MoveTank(MotorSet):
             if not noEdge :
                 #print('in kein bscan')
                 if reflected_light_intensity < edgev :
-                    print('jetzt')
-
                     edgeCounter += 1
-                    if edgeCounter >= edgeCountMax: #todo oder einfach langsamer nach als da sg gleihh
-                      #  self.stop()
-                        print("ecke")
+                    if edgeCounter >= edgeCountMax:
                         self.stop()
                         time.sleep(2)
                         edgeCounter=0

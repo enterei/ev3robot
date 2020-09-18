@@ -5,23 +5,16 @@ from Robot import Robot
 
 class SystemHandler:
     robot=Robot()
-    Table = [['N', 'N', 'N', 'N'], ['N', 'N', 'N', 'N'], ['N', 'N', 'N', 'N'], ['N', 'N', 'N', 'N']]
-    target = [None,None]
-    position=[0,0]
-    next_corner=[None,None]
-    orientation =[1,0]
+
     neutrals =[]
     neutral_idx=0
     active =None
 
 
     def __init__(self,**kwargs):
+        print("init")
 
-        self.Table[0][0]= 'P'
-        self.orientation ="up"
-        self.target = [None, None]
-        self.position = [0, 0]
-        self.next_corner = [None, None]
+
 
 
 
@@ -29,8 +22,7 @@ class SystemHandler:
     def handleMessage(self,message):
         message=json.loads(message.decode('utf-8'))
         print(message.get('Aktion'))
-        if(message.get('gameEndSound')=="True"):
-            self.robot.endGameSound()
+
         if(message.get('Aktion')=="Bewegung"):
             ##self.handleSystem(message)
             if message.get('Bewegung')=="straight":

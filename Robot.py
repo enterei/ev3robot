@@ -46,20 +46,15 @@ class Robot:
     assert rm.connected  # right motor
 
 
-    # dt = 5500
 
     def __init__(self, **kwargs):
         for keys, value in kwargs.items():
             if (keys == "cmode"):
                 self.cs.mode = targetMode(value)
-           # if(keys == 'speed'):
-            #    self.speed=value
-            #if(keys=='time'):
-            #    self.time=value
+
         print("robo cmode: " + str(self.cs.mode))
     def makesound(self):
-        #Sound.tone([(264, 500, 200), (352, 500, 200),(528, 1000, 100)]).wait()
-        #Sound.play('VOLUME_uq83n-e4wo7.wav').wait()
+
         print("ready")
         while True:
             if self.tank.ts.is_pressed:
@@ -70,7 +65,6 @@ class Robot:
         Sound.speak('I hope he hurries').wait()
         Sound.speak('I am running out of text').wait()
 
-       # Sound.tone(264, 2000)
     def makebeep(self):
         Sound.tone(264, 2000)
 
@@ -79,7 +73,6 @@ class Robot:
 
     def run_modes(self, ar, **kwargs):
         print("rmode: " + str(ar))
-     #   print(args.__len__())
         if(ar =="run"):
             print("run in if ")
             self.run(**kwargs)
@@ -90,8 +83,7 @@ class Robot:
             self.run_measure(**kwargs)
         elif(ar=="fol"):
 
-            self.lineF(**kwargs)
-           # self.lineF(**kwargs)
+            self.follow_line(**kwargs)
         elif(ar=="way"):
             self.goWay(**kwargs)
         elif(ar=="speak"):
@@ -104,7 +96,6 @@ class Robot:
 
             print('b len: ' + str(len("run")))
             print('b rep: ' + repr("run"))
-      #  return switcher.get(ar, lambda *_: "ERROR: Tank type not valid")(*args)
 
 
     def run_measure(self,**kwarg):
@@ -172,27 +163,17 @@ class Robot:
             print(self.cs.reflected_light_intensity)
             self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
 
-    def lineF(self,**kwargs):
-        print(type(kwargs.get('ms')))
-        print(kwargs.get('ms'))
-        fj=True
-       # ga = int(kwargs.get('ms'))
-       # tank = ev3dev2.motor.MoveTank(self.lm,self.rm)
-
-        print(dict(kwargs))
-        print(kwargs.get('lspeed'))
+    def follow_line(self, **kwargs):
+        justFound=True  #ensures robot doesnt stop at same edge where it starts
         while(True):
             res= self.tank.follow_line(
-             #   kp=0.3, ki=0.05, kd=0.2,
-                #follow_for=follow_for_forever, #todo follow ms kwarg
-                folow_for=follow_for_ms,jf=fj,
+                folow_for=follow_for_ms,jf=justFound,
                 **kwargs
             )
-            print(res.get('return'))
             if res.get('return')=="off_line":
                 print('offline')
                 x = self.readjust(**res)
-                fj=False
+                justFound=False
             else:
                 return res
 
@@ -205,10 +186,8 @@ class Robot:
         mc=50
         if kwargs.get('lms')< (kwargs.get('rms')):
             right=True
-      #  tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), kwargs.get('degrees'))
-        while self.cs.reflected_light_intensity > kwargs.get('target_light_intensity')+2:  #todo i say kwargs targetet light reflection
-          #  print(self.cs.reflected_light_intensity)
-#            self.tank.on_for_degrees(kwargs.get('lms')*-1, kwargs.get('rms')*-1, 10)
+        while self.cs.reflected_light_intensity > kwargs.get('target_light_intensity')+2:
+
             print(counter)
             if(right):
                 if counter<mc:
@@ -227,43 +206,29 @@ class Robot:
 
 
     def goWay(self,**kwargs):
-        orders=kwargs.get('way') #ORDAAAAAAAAAAAAAAAAAAAA
+        orders=kwargs.get('way')
         strlen=len(orders)
-        print("ordeaaaaaaa: "+orders)
 
-        #idx=0
-       # res = self.lineF(**kwargs)
         res={'return':"ecke"}
         for i in range (strlen) :
             if res.get('return')=="ecke":
                 self.cs.mode='COL-REFLECT'
                 if(orders[i]=='s'):
-                    print("IN FUCKING STRAIGHT")
-                    print(orders[i])
-                    res=self.lineF(**kwargs)
-                  #  print("res after lineF:"+dict(res))
+
+                    res=self.follow_line(**kwargs)
 
                 if(orders[i]=='r'):
-                    print("IN FUCKING RIGHT")
 
-                    print(orders[i])
                     self.tank.on_for_seconds(kwargs.get('uspeed'),kwargs.get('uspeed'), kwargs.get('rot'))
-
                     self.tank.on_for_degrees(kwargs.get('ulspeed'), kwargs.get('urspeed'), kwargs.get('degrees'))
                     while self.cs.reflected_light_intensity > kwargs.get('target_light_intensity') + 2:
                         print(self.cs.reflected_light_intensity)
                         self.tank.on_for_degrees(kwargs.get('rspeed'), kwargs.get('lspeed'), 10)
-                      #  self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
-                    self.lineF(**kwargs)
+                    self.follow_line(**kwargs)
 
 
                 if (orders[i] == 'l'):
-                    print(orders[i])
-                    print("IN FUCKING LEFRT")
 
-                #    help = kwargs.get('lspeed')
-                 #   kwargs['lspeed']=kwargs.get('rspeed')
-                  #  kwargs['rspeed']=help
                     self.tank.on_for_seconds(kwargs.get('uspeed'),kwargs.get('uspeed'), kwargs.get('rot'))
 
                     self.tank.on_for_degrees(kwargs.get('urspeed'), kwargs.get('ulspeed'), kwargs.get('degrees'))
@@ -271,7 +236,7 @@ class Robot:
                         print(self.cs.reflected_light_intensity)
                         self.tank.on_for_degrees(kwargs.get('lspeed'), kwargs.get('rspeed'), 10)
                         #self.tank.on_for_degrees(kwargs.get('rspeed'), kwargs.get('lspeed'), 10)
-                    self.lineF(**kwargs)
+                    self.follow_line(**kwargs)
 
         return True
 

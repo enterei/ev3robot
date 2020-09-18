@@ -17,17 +17,16 @@ import time
 ####  https://docs.python.org/3/howto/sockets.html   über korrekte SOcket umplementierung
 
 from SystemHandler import SystemHandler
+import argparse
 
-messages = [b'Message 1 from client.', b'Message 2 from client.']
-messages ={'event':"ecke",'a':2}
-
-# initializing dictionary
-messages = {'Aktion': 'Test', 'is': 2, 'Case':"case1"}
-messages = {'Aktion': 'Test', 'is': 2, 'Case':"case2"}
+parser = argparse.ArgumentParser(description="rosolve robot modes")
+parser.add_argument('--port',type=int,default=65432,help='turn!',required=False)#port number
+parser.add_argument('--host',type=str,default='192.168.0.179',help='bscan!',required=False) #host ip adress
+pargs = parser.parse_args()
 
 messages = {'Aktion': 'Befehl'}
 
-message_handler=SystemHandler()
+system_handler=SystemHandler()
 # printing original dictionary
 #print("The original dictionary is : " + str(test_dict))
 
@@ -87,8 +86,8 @@ def recv(key,mask):
             sock.close()
 if len(sys.argv) != 4:
     print("usage:", sys.argv[0], "<host> <port> <num_connections>")
-    host  = '192.168.0.179'
-    port = '65432'
+    host  = pargs.host
+    port = pargs.port
     num_conns=1
 
 start_connections(host, int(port), int(num_conns))
@@ -109,7 +108,7 @@ try:
                 if res:
                     print("len OUT: " + str(len(res)))
 
-                    mes= message_handler.handleMessage(res)
+                    mes= system_handler.handleMessage(res)
                     if mes !=None:
                         send(key,mask,mes)
 
