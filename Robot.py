@@ -74,7 +74,6 @@ class Robot:
     def run_modes(self, ar, **kwargs):
         print("rmode: " + str(ar))
         if(ar =="run"):
-            print("run in if ")
             self.run(**kwargs)
 
         elif(ar == "mea"):
@@ -108,7 +107,6 @@ class Robot:
         target_val = self.cs.value()
         self.cs.reflected_light_intensity
         print()
-        print("refl line foll u know u shit: "+str(self.cs.reflected_light_intensity))
         print("target v:" + str(targetvalue(target_val)))
 
         print("red: " + str(self.cs.red))

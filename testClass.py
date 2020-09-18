@@ -73,13 +73,7 @@ def main():
                           ,'edgetest':pargs.edgetest,'wsp':pargs.wsp,'ulspeed':pargs.ulspeed,'urspeed':pargs.urspeed,'uspeed':pargs.uspeed
                           })
 
-    #robot.run_measure(10)
 
-
-#mysocket = MySocket
-#mysocket.conn(mysocket)
-#mysocket.send(mysocket,[2,3,4,5])
-#mysocket.send(mysocket,[3,24,34,53])
 if __name__ == '__main__':
     #server()
     main()
